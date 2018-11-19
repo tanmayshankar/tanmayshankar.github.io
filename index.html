@@ -1,6 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
+<!-- remove after done debugging!!!! -->
+<meta http-equiv="refresh" content="1" >
+<!-- remove after done debugging!!!! -->
+
 <head>
   <meta name=viewport content="width=800">
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
@@ -41,14 +45,21 @@
     papertitle {
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 14px;
-      font-weight: 700
+      font-weight: 700;
+      margin-bottom: 10cm;
     }
     
     name {
       font-family: 'Lato', Verdana, Helvetica, sans-serif;
       font-size: 32px;
     }
-    
+ 
+     .zero {
+      width: 160px;
+      height: 80px;
+      position: relative;
+    }
+
     .one {
       width: 160px;
       height: 160px;
@@ -70,11 +81,18 @@
       -webkit-transition: opacity .2s ease-in-out;
     }
     
+    mid {
+      font-size: 40px;
+      position:relative;
+      top:2px;
+    }
+
+
     span.highlight {
       background-color: #ffffd0;
     }
   </style>
-  <link rel="icon" href="https://www.cs.cmu.edu/sites/all/themes/scs2017/favicon.ico">
+  <link rel="icon" href="https://www.ri.cmu.edu/wp-content/uploads/2017/04/ri-favicon.ico">
 
   <title>Sudharshan Suresh</title>
   
@@ -88,23 +106,23 @@
           <tbody><tr>
             <td width="67%" valign="middle">
               <p align="center">
-                <name>Sudharshan Suresh</name>
+                <name>Sudharshan Suresh <mid><font color=#F1948A>|</font></mid> <font color=#C0C0C0>Suddhu</font></name>
               <p align="center">
                 <font size="3">suddhu [at] cmu [dot] edu </font>
               </p>
-              <p><p style = "text-align:justify">I'm a Masters student at the <A href="http://www.ri.cmu.edu/">Robotics Institute</A>, <A href="http://www.cmu.edu"> Carnegie Mellon University</A> working with <A href="http://frc.ri.cmu.edu/~kaess/">Michael Kaess</a> in the <A href="http://rpl.ri.cmu.edu/">Robot Perception Lab</a>. My research interests span vision-based localization and mapping for mobile robots. Currently, I work on underwater localization for nuclear spent pools and active SLAM for robot exploration.
+              <p><p style = "text-align:justify">I'm a Masters student at the <A href="http://www.ri.cmu.edu/">Robotics Institute</A>, <A href="http://www.cmu.edu"> Carnegie Mellon University</A> working with <A href="http://frc.ri.cmu.edu/~kaess/">Michael Kaess</a> in the <A href="http://rpl.ri.cmu.edu/">Robot Perception Lab</a>. My research interests span visual SLAM and navigation for autonomous robots. Currently, I work on underwater localization for autonomous underwater vehicles (AUVs) and active SLAM for robot exploration.
               </p>
               <p><p style = "text-align:justify">Previously, I worked with <A href="http://www.frc.ri.cmu.edu/users/red/">Red Whittaker</a> on visual state-estimation for lunar rovers. I've also spent time with <A href="http://cds.iisc.ac.in/faculty/venky/">Venkatesh Babu</a> at <A href="https://www.iisc.ac.in/">IISc</a>, working on visual understanding. I majored in Controls and Instrumentation at <A href="https://www.nitt.edu/">NIT Trichy</a>. 
               </p>
               <p align=center>
-                <a href="misc/suddhu-CV.pdf">CV</a> &nbsp/&nbsp
+                <a href="misc/CV_Suddhu.pdf">CV</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=xYC738YAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
                 <a href="https://www.linkedin.com/in/sudharshansuresh/"> LinkedIn </a> &nbsp/&nbsp
                 <a href="https://www.ri.cmu.edu/ri-people/sudharshan-suresh/"> RI webpage </a>
               </p>
             </td>
             <td width="50%">
-              <img src="misc/suddhu-headshot.jpg">
+              <img src="misc/suddhu-heasdshot.jpg">
             </td>
           </tr>
         </table>
@@ -112,733 +130,227 @@
           <tr>
             <td width="100%" valign="middle">
               <heading>Research</heading>
-              <p>
-                Currently, I work on active SLAM for underwater exploration driven by visual saliency. localization, mapping and navigation e perception, state estimation, and efficient optimization algorithms with 3D perception, localization, SLAM vision-based localization system for an underwater robot that is currently used for nuclear reactor inspection
-              </p>
             </td>
           </tr>
         </table>
 
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody><tr><td>
-        <h1>Research Highlights</h1>
-        <h2> Computational Tools for Robot Design </h2>
-        <p style = "text-align:justify"> The goal of my thesis is to make robotics more accessible to casual users by reducing the domain knowledge required in designing and building robots. Towards this end, I have developed several interactive design tools that enable the design of desired structure and behavior of diverse robots.</p> <!-- with different form factors and functionalities.</p> -->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><div id="container">
-  <iframe width="400" height="225" src="https://www.youtube.com/embed/9tq_ymFeHKc?autoplay=1&mute=1&rel=0&loop=1&playlist=9tq_ymFeHKc" allowfullscreen ></iframe>
-</div>
-            </td><td width="75%" valign="top">
-              <p><b>Interactive tool for articulated robot design</b><br>
-        <br>
-        <p style = "text-align:justify"> This tool allows novices to create custom articulated robots such as manipulators and walking robots. It supports both manual and automatic design, and enables design testing using physics-based simulation.</p><br>
-        <em> ICRA 2017 <br> 
-    <br>Featured on <a href="https://techcrunch.com/2017/06/01/new-toolkit-makes-it-easy-to-drag-and-drop-your-own-robot/">Techcrunch</a> and <a href="https://cacm.acm.org/news/218246-robot-design-for-dummies/fulltext">ACM</a>! </em><br>
-        <em> Try it <a href="./files/articulated_robot_design.zip">out</a>!
-                <p>
-        <br>
-            </td>
-          </tr>
 
-    </td></tr>
-  
-  
-              <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><div id="container"> 
-  <iframe width="400" height="225" src="https://www.youtube.com/embed/U1CViN8OECs?autoplay=1&mute=1&rel=0&loop=1&playlist=U1CViN8OECs" allowfullscreen></iframe> <!-- 350X200 old size-->
-</div>
-            </td><td width="75%" valign="top">
-              <p><b>Interactive tool for non-articulated robot design</b><br>
-        <br>
-        <p style = "text-align:justify"> 
-        This tool enables novices to create smart IoT devices with embedded sensors using digital fabrication. It automatically finds assembly-aware packing of components within the device, and exports necessary geometries for 3D printing.</p><br>
-        <em> UIST 2018 </em>
-                <p>
-        <br>
-            </td>
-          </tr>
+       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+       <!-- current -->
+        <tr onmouseout="aperture_stop()" onmouseover="aperture_start()" bgcolor="#FFFFE0">
+          <td width="25%">
+            <div class="zero">
+              <div class="two" id='aperture_image'><img src='misc/suddhu-headshot.jpg'></div>
+              <img src='misc/suddhu-headshot.jpg'>
+            </div>
+            <script type="text/javascript">
+              function aperture_start() {
+                document.getElementById('aperture_image').style.opacity = "1";
+              }
 
-    </td></tr>
-  </table>
-  
-                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><div id="container">
-      <img src="images/semanticTeaser2.gif" alt="" width="400" height="225" style="border-style: none">
-</div>
-            </td><td width="75%" valign="top">
-              <p><b>Semantic design of expressive robot behaviors</b><br>
-        <br>
-        <p style = "text-align:justify"> Can we design complex robot behaviors such as robot walking based on the emotion that the behavior evokes?</p><br>
-        <br>
-        <em> In collaboration with <a href="https://www.autodeskresearch.com/groups/user-interface">Autodesk Research, Toronto.</a></em>
-                <p>
-        <br>
-            </td>
-          </tr>
+              function aperture_stop() {
+                document.getElementById('aperture_image').style.opacity = "0";
+              }
+              aperture_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+            <papertitle><font color=#FF8080><strong>(ongoing)</strong></font> Planning Revisits in Exploration for Saliency-Aware active SLAM Underwater
+            </papertitle>
+            <p> Can we harness visual data to identify waypoints for loop closure in an underwater exploration task? This research stems from previous work in active SLAM for the coverage problem. Image saliency metrics give us good candidates for loop closure, enabling drift-free operation and accurate underwater sonar maps.</p>
+          </td>
+        </tr>
 
-    </td></tr>
-  </table>
-  
-  </tbody></table>
+        <!-- refr slam -->
+        <tr onmouseout="aperture_stop()" onmouseover="aperture_start()">
+          <td width="25%">
+            <div class="one">
+              <div class="two" id='aperture_image'><img src='images/aperture_after.jpg'></div>
+              <img src='images/aperture_before.jpg'>
+            </div>
+            <script type="text/javascript">
+              function aperture_start() {
+                document.getElementById('aperture_image').style.opacity = "1";
+              }
 
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        
-  <tbody><tr><td>
-       <h1>Publications</h1>
-     <b>Computational Design, Human-Computer Interaction</b>
-     </tr></td>
-  </tbody></table>
-  
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/uist18.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Assembly-aware Design of Printable Electromechanical Devices</b>
-  <br><b>Ruta Desai</b>, James McCann, and Stelian Coros<br>
-  <em> ACM User Interface Software and Technology Symposium (UIST), Berlin, Germany (2018). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
-  <br><a href="./files/uist18.pdf">PDF</A> | <A href="https://youtu.be/7gsYSpJfIa4">Video</A> | <A href = "https://youtu.be/niu-XPIItao"> Fastforward </A>
-    <br>
-    </td>
-    </tr> </tbody>
-</table>
-  
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/siggraph.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Skaterbots: Optimization-based Design and Motion Synthesis for Robotic Creatures with Legs and Wheels</b>
-<br> Moritz Geilinger, Roi Poranne, <b>Ruta Desai</b>, Bernhard Thomaszewski, and Stelian Coros<br>
- <em> ACM Transactions on Graphics (Proc. ACM SIGGRAPH), Vancouver, Canada (2018). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
- <br><a href="http://crl.ethz.ch/papers/Skaterbots.pdf">PDF</A> | <a href="./cite/sigg18.bib">bib</a> | <A href="http://crl.ethz.ch/videos/skaterbots.mp4">Video</A>
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
+              function aperture_stop() {
+                document.getElementById('aperture_image').style.opacity = "0";
+              }
+              aperture_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+            <papertitle>Through-water Stereo SLAM with Refraction Correction for AUV Localization
+            </papertitle>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <u>Sudharshan Suresh</u>,
+            <a href="https://www.ri.cmu.edu/ri-people/eric-westman/">Eric Westman</a> and
+            <a href="http://frc.ri.cmu.edu/~kaess/">Michael Kaess</a>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <em><font color=#FF8080><strong>under review</strong></font> in IEEE Robotics and Automation Letters (ICRA/RAL)</em>, 2019
+            <br>
+            <strong>
+              <a href="data/papers/RAL_ICRA2019.pdf">pre-print</a> /
+              <a href="https://youtu.be/fZZTDyLymBs">video</a>
+            </strong>
+            <p> High-accuracy, drift-free pose estimates are
+                necessary for inspection tasks in underwater indoor environments, such as nuclear spent pools. We present a novel SLAM formulation using an onboard upward-facing stereo camera for underwater localization. We introduce a refraction correction module modeled after prior work in multimedia photogrammetry. The work is evaluated both simulation and real-world settings.</p>
+          </td>
+        </tr>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icraworkshop.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Automatic Design of Task-specific Robotic Arms</b>
-<br> <b>Ruta Desai</b>, Margarita Safonova, Katharina Muelling, and Stelian Coros<br>
- <em> ICRA Workshop on Autonomous Robot Design, Brisbane, Australia (2018). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
- <br><a href="https://arxiv.org/abs/1806.07419">arXiv</A> | <a href="./cite/icra2018wkshp.bib">bib</a> | <a href="./files/2018_ICRA_slides.pdf">Slides</a> | <A href="https://youtu.be/MOrijZu47EA">Video</A>
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icra18.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Interactive Co-Design of Form and Function for Legged Robots using the Adjoint Method</b>
-<br> <b>Ruta Desai</b>, Beichen Li, Ye Yuan and Stelian Coros<br>
- <em> International Conference on Climbing and Walking Robots (CLAWAR), Panama city, Panama (2018). &nbsp;</em><br>
- <em> <font color="red"> Best technical paper (second place)  &nbsp; </font> </em><br>
- <br><a href="https://arxiv.org/abs/1801.00385v2">arXiv Preprint</A> | <A href="https://www.youtube.com/watch?v=zrMZBgTbJho&feature=youtu.be">Video</A>
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icra17.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Computational Abstractions for Interactive Design of Robotic Devices</b>
-<br> <b>Ruta Desai</b>, Ye Yuan and Stelian Coros<br>
- <em> IEEE International Conference on Robotics and Automation (ICRA), Singapore (2017).&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
- <br><a href="./files/2017_ICRA_Ruta.pdf">PDF</A> | <a href="./cite/icra2017.bib">bib</a> | <a href="./files/2017_ICRA_slides.pdf">Slides</a> | <A href="https://www.youtube.com/watch?v=PGpTsQtznw4">Video</A>
- | <a href="./files/articulated_robot_design.zip">Code</a><br>
- Robot models for fabrication: <a href="https://www.myminifactory.com/object/robo-calligrapher-45664">car</a>, <a href="https://www.myminifactory.com/object/puppy-45663"> walking robot </a><br>
-                <p>
-        <br>
-            </td>
-          </tr>
+        <!-- doe -->
+        <tr onmouseout="aperture_stop()" onmouseover="aperture_start()">
+          <td width="25%">
+            <div class="one">
+              <div class="two" id='aperture_image'><img src='images/aperture_after.jpg'></div>
+              <img src='images/aperture_before.jpg'>
+            </div>
+            <script type="text/javascript">
+              function aperture_start() {
+                document.getElementById('aperture_image').style.opacity = "1";
+              }
 
-  </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/chi.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
- <b>3D Printing Pneumatic Device Controls with Variable Activation Force Capabilities</b>
-<br> Marynel Vazquez, Eric Brockmeyer, <b>Ruta Desai</b>, Chris Harrison and Scott E. Hudson<br>
- <em> ACM Conference on Human Factors in Computing Systems (CHI), Seoul, Korea, (2015).</em><br>
-<br><A href="https://www.ri.cmu.edu/pub_files/2015/4/3D-Printing-Pneumatic-Device-Controls-with-Variable-Activation-Force-Capabilities-Paper.pdf">PDF</A> | <a href="./cite/chi.bib">bib</a> | <a href="./files/3DPrintingCHI.pdf">Poster</a> | <a href="https://www.youtube.com/watch?v=CoIepxH4Pow"> Video </a>  
-<br>
-    <p>
-        <br>
-            </td>
-          </tr>
+              function aperture_stop() {
+                document.getElementById('aperture_image').style.opacity = "0";
+              }
+              aperture_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+            <papertitle>Localized Imaging and Mapping for Underwater Fuel Storage Basins
+            </papertitle>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            Jerry Hsiung,
+            Andrew Tallaksen,
+            Lawrence Papincak,
+            <u>Sudharshan Suresh</u>,<br>
+            Heather Jones,
+            <a href="http://www.frc.ri.cmu.edu/users/red/">William L. "Red" Whittaker</a> and
+            <a href="http://frc.ri.cmu.edu/~kaess/">Michael Kaess</a>
+            <br>
+            <em>Proceedings of the Symposium on Waste Management, Phoenix, Arizona</em>, Mar 2018
+            <br>
+            <strong>
+              <a href="data/papers/wm18_final.pdf">pdf</a> /
+              <a href="data/papers/wm18_presentation.pdf">slides</a> /
+              <a href="https://youtu.be/fZZTDyLymBs">video</a>
+            </strong>
+            <p> Developed a localized inspection solution for underwater 3D reconstruction of nuclear facilities. The system&mdash;the sensorpod&mdash;consists of a stereo camera, standard <em>and</em> structured light source, IMU and depth sensor. We generate dense reconstructions of underwater targets in tests.</p>
+          </td>
+        </tr>
 
-</tbody></table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <tbody><tr><td>
-          <h1></h1>
-      <b>Human Motion Modeling, Human Motor Control, Biomechanics</b>
-      </tr></td>
-    </tbody></table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/DW_v2.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
- <b>A Simple Model of Skill Acquisition in a Dynamic Balance Task</b>
-<br> <b>Ruta Desai</b> and Jessica K. Hodgins<br>
- <em> Dynamic Walking, Columbus, USA (2015).</em><br>
-<br><A href="http://www.ri.cmu.edu/pub_files/2015/7/DW15Abstract_DesaiRuta.pdf">PDF</A> | <a href="./cite/dw.bib"> bib</a> | <a href="./files/2015_DW_poster.pdf">Poster</a> | <a href="https://www.youtube.com/watch?v=u_3KUYrdAFI"> Video</a>
-            </td>
-          </tr>
-    
-</tbody>  
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/humanoids_v1.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-          <b>Virtual Model Control for Dynamic Lateral Balance</b>
-<br> <b>Ruta Desai</b>, Hartmut Geyer and Jessica K. Hodgins<br>
- <em> IEEE International Conference on Humanoid Robots (Humanoids), Madrid, Spain (2014).</em><br>
- <br><A href="http://www.ri.cmu.edu/pub_files/2014/11/07041464.pdf">PDF</A> | <a href="./cite/humanoids.bib">bib</a>
-  <br>
-            </td>
-          </tr>
-    
-</tbody>  
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/NMModel.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-<b>Integration of an Adaptive Swing Control into a Neuromuscular Human Walking Model</b>
-<br> Seungmoon Song, <b>Ruta Desai</b> and Hartmut Geyer<br>
- <em> IEEE Engineering in Medicine and Biology Society (EMBC), Osaka, Japan (2013).</em><br>
-<br><A href="http://www.ri.cmu.edu/pub_files/2013/7/SongEA13bIEEE_EMBC.pdf">PDF</A> | <a href="./cite/embc.bib">bib</a> | <a href="https://www.youtube.com/watch?v=mGFyqXEOLgE&feature=youtu.be"> Video </a>
-<br>
+        <!-- val -->
+        <tr onmouseout="aperture_stop()" onmouseover="aperture_start()">
+          <td width="25%">
+            <div class="one">
+              <div class="two" id='aperture_image'><img src='images/aperture_after.jpg'></div>
+              <img src='images/aperture_before.jpg'>
+            </div>
+            <script type="text/javascript">
+              function aperture_start() {
+                document.getElementById('aperture_image').style.opacity = "1";
+              }
 
-  <br>
-            </td>
-          </tr>
-    
-</tbody>
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icra.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-<b>Muscle-Reflex Control of Robust Swing Leg Placement</b>
-<br> <b>Ruta Desai</b> and Hartmut Geyer<br>
- <em> IEEE International Conference on Robotics and Automation (ICRA), Karlsruhe, Germany (2013).</em><br>
-<br> <A href="http://www.ri.cmu.edu/pub_files/2013/5/Desai-Geyer13IEEE_ICRA.pdf">PDF</A> | <a href="./cite/icra.bib">bib</a>
-<br>
-  <br>
-            </td>
-          </tr>
-    
-</tbody>
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/robio_v5.jpg" alt="" width="300" style="border-style: none">
-            </td><td width="75%" valign="top">
-<b>Robust Swing Leg Placement under Large Disturbances</b>
-<br><b>Ruta Desai</b> and Hartmut Geyer<br>
- <em> IEEE International Conference on Robotics and Biomimetics (ROBIO), Guangzhou, China (2012).</em><br>
-<br> <A href="http://www.ri.cmu.edu/pub_files/2012/12/Desai-Geyer12IEEEROBIO.pdf">PDF</A> | <a href="./cite/robio.bib">bib</a> | <a href ="https://www.cs.cmu.edu/~hgeyer/Videos/SWING_Demo.mp4"> Video </a>
-<br>
-  <br>
-</td></tr></tbody>
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tr><td>
-    <h1></h1>
-      <b>Patents and Articles</b>
-      </td></tr>
-</table>
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/patent_v4.png" alt="" width="300" style="border-style: none">
-            </td><td width="75%" valign="top">
-<b>Robust swing leg controller under large disturbances</b>
-<br> <b>Ruta Desai</b> and Hartmut Geyer <br>
- <em> US Patent 20150066156 A1 (2014).&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em><br>
-<br> <A href="https://www.google.com/patents/US20150066156">PDF</A>  
-<br>
-  <br>
-            </td>
-          </tr>
-</table> 
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/CMU_RI_small.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-<b>A Brief Overview of Human and Robot Motor Learning</b>
-<br> <b>Ruta Desai</b><br>
- <em> RI CMU Technical Report&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em><br>
-<br> <A href="https://www.ri.cmu.edu/pub_files/2015/10/MotorLearningReview_RutaDesai.pdf">PDF</A>  
-            </td>
-          </tr>
-    
-</tbody>
-</table>
-   
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">      
-  <tbody><tr><td>
-       <h1>Outreach</h1>
-     <b>Women in Technology</b>
-    <p>I am always looking to support and contribute towards encouraging women in science and technology. In the past: <br>
-    <ul>
-    <li align="left">I have led <A href="https://www.women.cs.cmu.edu/What/Outreach/">roadshows</A> and volunteered in teaching middle school girls at <a href = "">Technights</a>. We have <a href= "https://www.women.cs.cmu.edu/Who/Photos/TechNights/Fall2014_SmashingComputers/"> smashed computers</a>, fought <a href ="http://women.cs.cmu.edu/technights/OpenHouseHourofCode.pdf">combats in code</a> and have even <a href="https://www.women.cs.cmu.edu/Who/Photos/TechNights/Fall2013_Astronomy/">gazed stars</a> thorugh apps!</li>
-    <li align="left"> I have helped organize <a href="http://www.cs.cmu.edu/ourcs/people.html">OurCS 2015</a>, a conference to encourage undergraduate women in research. I was also a part of Google Anita Borg Scholars <a href = "https://www.facebook.com/pages/Anita-Borg-Scholarship-Alumni-Community/261363020730608">Alumni Planning committee</a>.
-    </li>
-    </ul>
-        </tr></td> 
-      <tr><td>
-      <b>CMU Laptop Rehab</b>
-      <br>
-    <p align="left">A bunch of us refurbish old laptops and desktops and donate them to schools. <A href="https://sites.google.com/site/cmulaptoprehab/">Read more!</A></p>
-        <br>
-    </td></tr> 
-     </tbody></table>
+              function aperture_stop() {
+                document.getElementById('aperture_image').style.opacity = "0";
+              }
+              aperture_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+            <papertitle>Object Category Understanding via Eye Fixations on Freehand Sketches
+            </papertitle>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <a href="https://ravika.github.io/index.html">Ravi Kiran Sarvadevabhatla</a>,
+            <u>Sudharshan Suresh</u> and
+            <a href="http://cds.iisc.ac.in/faculty/venky/">R. Venkatesh Babu</a>
+            <br>
+            <em>IEEE Transactions on Image Processing (TIP)</em>, May 2017
+            <br>
+            <strong>
+              <a href="https://ieeexplore.ieee.org/document/7866001">paper</a> /
+              <a href="http://val.cds.iisc.ac.in/sketchfix/">project page</a>
+            </strong>
+            <p> Research investigates object category understanding and visual saliency for freehand sketches. We create and open-source <a href="http://val.cds.iisc.ac.in/sketchfix/">SketchFix-160</a>, a dataset of free-viewing user tests collected with a monocular eyetracker. We analyse fixation data to reveal multi-level consistency and (a) predict a test sketch's category given only its fixation sequence and (b) build a computational model which predicts part-labels underlying fixations on objects.</p>
+          </td>
+        </tr>
 
+        <!-- riss -->
+        <tr onmouseout="aperture_stop()" onmouseover="aperture_start()">
+          <td width="25%">
+            <div class="one">
+              <div class="two" id='aperture_image'><img src='images/aperture_after.jpg'></div>
+              <img src='images/aperture_before.jpg'>
+            </div>
+            <script type="text/javascript">
+              function aperture_start() {
+                document.getElementById('aperture_image').style.opacity = "1";
+              }
 
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        
-  <tbody><tr><td>
-       <h1>Miscellaneous Projects</h1>
-               <p style = "text-align:justify"> Some fun projects from the past.</p> 
-     </tr></td>
-  </tbody></table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/BO_NN.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="center">
-              <p><b>Bayesian Optimization with a Neural Network Kernel</b>
-<br> Akshara Rai, <b>Ruta Desai</b>, and Siddharth Gopal<br>
- <br><a href="./files/BO_NN.pdf">PDF</A> 
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="15%"><img src="images/fountainFig.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="center">
-              <p><b>Personalized Fountains that Create 3D Shapes Out of Water</b>
-<br> <b>Ruta Desai</b> and Arun Srivatsan Rangaprasad<br>
- <br><a href="./files/fountain.pdf">PDF</A>  | <a href = "https://www.youtube.com/watch?v=s4gPyIxHUZY"> Video</a> (duck-shaped fountain)
-                <p>
-        <br>
-            </td>
-          </tr>
+              function aperture_stop() {
+                document.getElementById('aperture_image').style.opacity = "0";
+              }
+              aperture_stop()
+            </script>
+          </td>
+          <td valign="top" width="75%">
+            <papertitle>Optical Kinematic State Estimation of Planetary Rovers using Downward-Facing Monocular Fisheye Camera
+            </papertitle>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <u>Sudharshan Suresh</u> ,
+            <a href="https://www.ri.cmu.edu/ri-people/eugene-fang/">Eugene Fang</a>,
+            and
+            <a href="http://www.frc.ri.cmu.edu/users/red/">William L. "Red" Whittaker</a> 
+            <br>
+            <em>Robotics Institute Summer Scholars Working Paper Journal</em>, Nov 2016
+            <br>
+            <strong>
+              <a href="data/papers/RISS2016.pdf">pdf</a> /
+              <a href="https://youtu.be/-D7WXVTPXuo">video</a> / 
+              <a href="https://riss.ri.cmu.edu/wp-content/uploads/2016/09/2016-RISS-Poster-SUDHARSHAN_Suresh.pdf">poster</a>
+            </strong>
 
-  </tbody>
-</table>
+            <div style="height:10px;font-size:1px;">&nbsp;</div>
+            <papertitle>Camera-Only Kinematics for Small Lunar Rovers
+            </papertitle>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <a href="https://www.ri.cmu.edu/ri-people/eugene-fang/">Eugene Fang</a>, 
+            <u>Sudharshan Suresh</u>,
+            and
+            <a href="http://www.frc.ri.cmu.edu/users/red/">William L. "Red" Whittaker</a> 
+            <br>
+            <em>Annual Meeting of the Lunar Exploration Analysis Group</em>, Nov 2016
+            <br>
+            <strong>
+              <a href="https://www.hou.usra.edu/meetings/leag2016/eposter/5026.pdf">poster</a> /
+              <a href="https://www.hou.usra.edu/meetings/leag2016/pdf/5026.pdf">pdf</a>
+            </strong>
+            <p> We develop a visual state-estimation algorithm for planetary rovers via self-perception. The method uses a single downward-facing fisheye camera to estimate 10-DoF kinematic state on rugged terrain. Our estimation combines fiducial marker tracking, optical flow techniques and knowledge of the rover's kinematic constraints. We demonstrate it performs on the Autokrawler operating in a lunar analogous field test and results agree well with proprioceptive sensors</p>
+          </td>
+        </tr>
+
+        </table>
 
 <script type="text/javascript">
-
-
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script><script src="./aayushb_wfiles/ga.js" type="text/javascript"></script> <script type="text/javascript">
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
 try {
-        var pageTracker = _gat._getTracker("UA-39749944-1");
-        pageTracker._trackPageview();
-        } catch(err) {}
-        </script>
-      </td>
-    </tr>
-  </tbody></table>
+  var pageTracker = _gat._getTracker("UA-xxxxxx-x");
+  pageTracker._trackPageview();
+} catch(err) {}
+</script>
 
-<br>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
   <tr><td>
         <p align="right"><font size="2">
-    Last updated: September 2018
+    Last updated: November 2018
         <p align="right"><font size="2">
 Webpage adapted from <a href="http://www.cs.berkeley.edu/~barron/">Jon Barron.</a>
 </font></p>
 
 </td></tr>
 </table>
-
-      </td>
-    </tr>
-  </table>
-
-
-</body></html>
-
-<body>
-  <table width="1100" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-      <td>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-          <tbody><tr>
-            <td width="67%" valign="middle">
-
-              <p align="center"><font size="6">Ruta Desai</font>
-
-</p><p style = "text-align:justify">I am a PhD student at the <A href="http://www.ri.cmu.edu/">Robotics Institute</A>, <A href="http://www.cmu.edu"> Carnegie Mellon University</A> working with <A href="http://www.cs.cmu.edu/~scoros/">Stelian Coros</a> and <A href="https://www.cs.cmu.edu/~jmccann/">Jim McCann</a>. My research interests lie in applying optimization and data-driven techniques to solve complex real-world problems. For my current research, I build computational design tools that enable casual users to build robots, towards increasing accessibility of robotics. In the long term, I would like to build technologies that enhance the life and well-being of community at large.<br> <br>
-
-In the past, I have had not-so-brief stints in the area of human motor control and biomechanical simulations. During my Masters, I worked with <A href="http://www.cs.cmu.edu/~hgeyer/">Hartmut Geyer</a> on understanding human control of leg placement. I have also spent some time trying to understand human balance, and motor skill aquisition in people learning bongoboarding with <A href="http://www.cs.cmu.edu/~jkh/">Jessica K. Hodgins</A> as an intern at <A href="https://www.disneyresearch.com/people/ruta-desai/"> Disney Research Pittsburgh</a>.<br><br>
-
-In 2017, I spent a wonderful summer with the <A href="https://www.autodeskresearch.com/groups/user-interface">User Interface Research group</A> at <A href="https://www.autodeskresearch.com/">Autodesk Research</A>, Toronto. I worked with <A href ="https://www.autodeskresearch.com/people/fraser-anderson">Fraser Anderson</A>, <A href="https://www.autodeskresearch.com/people/justin-matejka">Justin Matejka</A>, and <A href="http://tovigrossman.com/">Tovi Grossman</A> on a data-driven design tool for robots.<br><br>
-
-I received the <a href="http://www.siebelscholars.com/scholars/RutaDesai"> Siebel Scholarship</a> in 2013, <a href="http://erc-assoc.org/content/graduate-students-earn-prestigious-scholarships-women-anca-dragan-and-ruta-desai">Google Anita Borg Memorial Scholarship</a> in 2012, and <a href="http://www.humanoids2014.com/index.php/awards">Dr. Kanako Miura's Award</a> in Humanoids 2014. 
-
-</p>
-<!--
- <p align=center>
-          <br>
-          <a href="mailto:rutad@cmu.edu">Email</a> &nbsp/&nbsp
-          <a href="http://www.cs.cmu.edu/~rutad/CV_Ruta.pdf">CV</a> &nbsp/&nbsp
-          <a href="http://www.cs.cmu.edu/~rutad/thesis.html">Thesis</a> &nbsp/&nbsp
-          <a href="https://scholar.google.com/citations?hl=en&user=bwZFR4EAAAAJ">Google Scholar</a>&nbsp/&nbsp
-          <a href="http://ri.cmu.edu/ri-people/ruta-desai/">RI page</a>&nbsp/&nbsp
-      <a href ="https://bitbucket.org/rutad/">Code</a>
-        </p>
-</p>
--->
-            </td>
-            <td width="25%"><img width="250" src="images/ruta.jpg"><br><p align=center>Email: rutad[at]cmu.edu</p><p align=center>
-          <a href="http://www.cs.cmu.edu/~rutad/CV_Ruta.pdf">CV</a> &nbsp/&nbsp
-          <a href="http://www.cs.cmu.edu/~rutad/thesis.html">Thesis</a> &nbsp/&nbsp
-          <a href="https://scholar.google.com/citations?hl=en&user=bwZFR4EAAAAJ">Google Scholar</a><br>
-          <a href="http://ri.cmu.edu/ri-people/ruta-desai/">RI webpage</a>&nbsp/&nbsp
-      <a href ="https://bitbucket.org/rutad/">Code</a></p></td>
-          </tr>
-        </tbody></table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        
-      <tbody><tr><td>
-        <h1>Research Highlights</h1>
-        <h2> Computational Tools for Robot Design </h2>
-        <p style = "text-align:justify"> The goal of my thesis is to make robotics more accessible to casual users by reducing the domain knowledge required in designing and building robots. Towards this end, I have developed several interactive design tools that enable the design of desired structure and behavior of diverse robots.</p> <!-- with different form factors and functionalities.</p> -->
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><div id="container">
-  <iframe width="400" height="225" src="https://www.youtube.com/embed/9tq_ymFeHKc?autoplay=1&mute=1&rel=0&loop=1&playlist=9tq_ymFeHKc" allowfullscreen ></iframe>
-</div>
-            </td><td width="75%" valign="top">
-              <p><b>Interactive tool for articulated robot design</b><br>
-        <br>
-        <p style = "text-align:justify"> This tool allows novices to create custom articulated robots such as manipulators and walking robots. It supports both manual and automatic design, and enables design testing using physics-based simulation.</p><br>
-        <em> ICRA 2017 <br> 
-		<br>Featured on <a href="https://techcrunch.com/2017/06/01/new-toolkit-makes-it-easy-to-drag-and-drop-your-own-robot/">Techcrunch</a> and <a href="https://cacm.acm.org/news/218246-robot-design-for-dummies/fulltext">ACM</a>! </em><br>
-        <em> Try it <a href="./files/articulated_robot_design.zip">out</a>!
-                <p>
-        <br>
-            </td>
-          </tr>
-
-    </td></tr>
-  
-  
-              <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><div id="container"> 
-  <iframe width="400" height="225" src="https://www.youtube.com/embed/U1CViN8OECs?autoplay=1&mute=1&rel=0&loop=1&playlist=U1CViN8OECs" allowfullscreen></iframe> <!-- 350X200 old size-->
-</div>
-            </td><td width="75%" valign="top">
-              <p><b>Interactive tool for non-articulated robot design</b><br>
-        <br>
-        <p style = "text-align:justify"> 
-        This tool enables novices to create smart IoT devices with embedded sensors using digital fabrication. It automatically finds assembly-aware packing of components within the device, and exports necessary geometries for 3D printing.</p><br>
-        <em> UIST 2018 </em>
-                <p>
-        <br>
-            </td>
-          </tr>
-
-    </td></tr>
-  </table>
-  
-                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><div id="container">
-      <img src="images/semanticTeaser2.gif" alt="" width="400" height="225" style="border-style: none">
-</div>
-            </td><td width="75%" valign="top">
-              <p><b>Semantic design of expressive robot behaviors</b><br>
-        <br>
-        <p style = "text-align:justify"> Can we design complex robot behaviors such as robot walking based on the emotion that the behavior evokes?</p><br>
-        <br>
-        <em> In collaboration with <a href="https://www.autodeskresearch.com/groups/user-interface">Autodesk Research, Toronto.</a></em>
-                <p>
-        <br>
-            </td>
-          </tr>
-
-    </td></tr>
-  </table>
-  
-  </tbody></table>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        
-  <tbody><tr><td>
-       <h1>Publications</h1>
-     <b>Computational Design, Human-Computer Interaction</b>
-     </tr></td>
-  </tbody></table>
-  
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/uist18.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Assembly-aware Design of Printable Electromechanical Devices</b>
-	<br><b>Ruta Desai</b>, James McCann, and Stelian Coros<br>
-	<em> ACM User Interface Software and Technology Symposium (UIST), Berlin, Germany (2018). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
-	<br><a href="./files/uist18.pdf">PDF</A> | <A href="https://youtu.be/7gsYSpJfIa4">Video</A> | <A href = "https://youtu.be/niu-XPIItao"> Fastforward </A>
-    <br>
-    </td>
-    </tr> </tbody>
-</table>
-  
-    			<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/siggraph.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Skaterbots: Optimization-based Design and Motion Synthesis for Robotic Creatures with Legs and Wheels</b>
-<br> Moritz Geilinger, Roi Poranne, <b>Ruta Desai</b>, Bernhard Thomaszewski, and Stelian Coros<br>
- <em> ACM Transactions on Graphics (Proc. ACM SIGGRAPH), Vancouver, Canada (2018). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
- <br><a href="http://crl.ethz.ch/papers/Skaterbots.pdf">PDF</A> | <a href="./cite/sigg18.bib">bib</a> | <A href="http://crl.ethz.ch/videos/skaterbots.mp4">Video</A>
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-
-  			<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icraworkshop.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Automatic Design of Task-specific Robotic Arms</b>
-<br> <b>Ruta Desai</b>, Margarita Safonova, Katharina Muelling, and Stelian Coros<br>
- <em> ICRA Workshop on Autonomous Robot Design, Brisbane, Australia (2018). &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
- <br><a href="https://arxiv.org/abs/1806.07419">arXiv</A> | <a href="./cite/icra2018wkshp.bib">bib</a> | <a href="./files/2018_ICRA_slides.pdf">Slides</a> | <A href="https://youtu.be/MOrijZu47EA">Video</A>
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icra18.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Interactive Co-Design of Form and Function for Legged Robots using the Adjoint Method</b>
-<br> <b>Ruta Desai</b>, Beichen Li, Ye Yuan and Stelian Coros<br>
- <em> International Conference on Climbing and Walking Robots (CLAWAR), Panama city, Panama (2018). &nbsp;</em><br>
- <em> <font color="red"> Best technical paper (second place)  &nbsp; </font> </em><br>
- <br><a href="https://arxiv.org/abs/1801.00385v2">arXiv Preprint</A> | <A href="https://www.youtube.com/watch?v=zrMZBgTbJho&feature=youtu.be">Video</A>
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icra17.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-              <p><b>Computational Abstractions for Interactive Design of Robotic Devices</b>
-<br> <b>Ruta Desai</b>, Ye Yuan and Stelian Coros<br>
- <em> IEEE International Conference on Robotics and Automation (ICRA), Singapore (2017).&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</em><br>
- <br><a href="./files/2017_ICRA_Ruta.pdf">PDF</A> | <a href="./cite/icra2017.bib">bib</a> | <a href="./files/2017_ICRA_slides.pdf">Slides</a> | <A href="https://www.youtube.com/watch?v=PGpTsQtznw4">Video</A>
- | <a href="./files/articulated_robot_design.zip">Code</a><br>
- Robot models for fabrication: <a href="https://www.myminifactory.com/object/robo-calligrapher-45664">car</a>, <a href="https://www.myminifactory.com/object/puppy-45663"> walking robot </a><br>
-                <p>
-        <br>
-            </td>
-          </tr>
-
-  </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/chi.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
- <b>3D Printing Pneumatic Device Controls with Variable Activation Force Capabilities</b>
-<br> Marynel Vazquez, Eric Brockmeyer, <b>Ruta Desai</b>, Chris Harrison and Scott E. Hudson<br>
- <em> ACM Conference on Human Factors in Computing Systems (CHI), Seoul, Korea, (2015).</em><br>
-<br><A href="https://www.ri.cmu.edu/pub_files/2015/4/3D-Printing-Pneumatic-Device-Controls-with-Variable-Activation-Force-Capabilities-Paper.pdf">PDF</A> | <a href="./cite/chi.bib">bib</a> | <a href="./files/3DPrintingCHI.pdf">Poster</a> | <a href="https://www.youtube.com/watch?v=CoIepxH4Pow"> Video </a>  
-<br>
-    <p>
-        <br>
-            </td>
-          </tr>
-
-</tbody></table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <tbody><tr><td>
-          <h1></h1>
-      <b>Human Motion Modeling, Human Motor Control, Biomechanics</b>
-      </tr></td>
-    </tbody></table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/DW_v2.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
- <b>A Simple Model of Skill Acquisition in a Dynamic Balance Task</b>
-<br> <b>Ruta Desai</b> and Jessica K. Hodgins<br>
- <em> Dynamic Walking, Columbus, USA (2015).</em><br>
-<br><A href="http://www.ri.cmu.edu/pub_files/2015/7/DW15Abstract_DesaiRuta.pdf">PDF</A> | <a href="./cite/dw.bib"> bib</a> | <a href="./files/2015_DW_poster.pdf">Poster</a> | <a href="https://www.youtube.com/watch?v=u_3KUYrdAFI"> Video</a>
-            </td>
-          </tr>
-    
-</tbody>  
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/humanoids_v1.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-          <b>Virtual Model Control for Dynamic Lateral Balance</b>
-<br> <b>Ruta Desai</b>, Hartmut Geyer and Jessica K. Hodgins<br>
- <em> IEEE International Conference on Humanoid Robots (Humanoids), Madrid, Spain (2014).</em><br>
- <br><A href="http://www.ri.cmu.edu/pub_files/2014/11/07041464.pdf">PDF</A> | <a href="./cite/humanoids.bib">bib</a>
-  <br>
-            </td>
-          </tr>
-    
-</tbody>  
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/NMModel.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-<b>Integration of an Adaptive Swing Control into a Neuromuscular Human Walking Model</b>
-<br> Seungmoon Song, <b>Ruta Desai</b> and Hartmut Geyer<br>
- <em> IEEE Engineering in Medicine and Biology Society (EMBC), Osaka, Japan (2013).</em><br>
-<br><A href="http://www.ri.cmu.edu/pub_files/2013/7/SongEA13bIEEE_EMBC.pdf">PDF</A> | <a href="./cite/embc.bib">bib</a> | <a href="https://www.youtube.com/watch?v=mGFyqXEOLgE&feature=youtu.be"> Video </a>
-<br>
-
-  <br>
-            </td>
-          </tr>
-    
-</tbody>
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/icra.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-<b>Muscle-Reflex Control of Robust Swing Leg Placement</b>
-<br> <b>Ruta Desai</b> and Hartmut Geyer<br>
- <em> IEEE International Conference on Robotics and Automation (ICRA), Karlsruhe, Germany (2013).</em><br>
-<br> <A href="http://www.ri.cmu.edu/pub_files/2013/5/Desai-Geyer13IEEE_ICRA.pdf">PDF</A> | <a href="./cite/icra.bib">bib</a>
-<br>
-  <br>
-            </td>
-          </tr>
-    
-</tbody>
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/robio_v5.jpg" alt="" width="300" style="border-style: none">
-            </td><td width="75%" valign="top">
-<b>Robust Swing Leg Placement under Large Disturbances</b>
-<br><b>Ruta Desai</b> and Hartmut Geyer<br>
- <em> IEEE International Conference on Robotics and Biomimetics (ROBIO), Guangzhou, China (2012).</em><br>
-<br> <A href="http://www.ri.cmu.edu/pub_files/2012/12/Desai-Geyer12IEEEROBIO.pdf">PDF</A> | <a href="./cite/robio.bib">bib</a> | <a href ="https://www.cs.cmu.edu/~hgeyer/Videos/SWING_Demo.mp4"> Video </a>
-<br>
-  <br>
-</td></tr></tbody>
-</table>
-    
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <tr><td>
-    <h1></h1>
-      <b>Patents and Articles</b>
-      </td></tr>
-</table>
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/patent_v4.png" alt="" width="300" style="border-style: none">
-            </td><td width="75%" valign="top">
-<b>Robust swing leg controller under large disturbances</b>
-<br> <b>Ruta Desai</b> and Hartmut Geyer <br>
- <em> US Patent 20150066156 A1 (2014).&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em><br>
-<br> <A href="https://www.google.com/patents/US20150066156">PDF</A>  
-<br>
-  <br>
-            </td>
-          </tr>
-</table> 
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/CMU_RI_small.jpg" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="top">
-<b>A Brief Overview of Human and Robot Motor Learning</b>
-<br> <b>Ruta Desai</b><br>
- <em> RI CMU Technical Report&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</em><br>
-<br> <A href="https://www.ri.cmu.edu/pub_files/2015/10/MotorLearningReview_RutaDesai.pdf">PDF</A>  
-            </td>
-          </tr>
-    
-</tbody>
-</table>
-   
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">      
-  <tbody><tr><td>
-       <h1>Outreach</h1>
-     <b>Women in Technology</b>
-    <p>I am always looking to support and contribute towards encouraging women in science and technology. In the past: <br>
-    <ul>
-    <li align="left">I have led <A href="https://www.women.cs.cmu.edu/What/Outreach/">roadshows</A> and volunteered in teaching middle school girls at <a href = "">Technights</a>. We have <a href= "https://www.women.cs.cmu.edu/Who/Photos/TechNights/Fall2014_SmashingComputers/"> smashed computers</a>, fought <a href ="http://women.cs.cmu.edu/technights/OpenHouseHourofCode.pdf">combats in code</a> and have even <a href="https://www.women.cs.cmu.edu/Who/Photos/TechNights/Fall2013_Astronomy/">gazed stars</a> thorugh apps!</li>
-    <li align="left"> I have helped organize <a href="http://www.cs.cmu.edu/ourcs/people.html">OurCS 2015</a>, a conference to encourage undergraduate women in research. I was also a part of Google Anita Borg Scholars <a href = "https://www.facebook.com/pages/Anita-Borg-Scholarship-Alumni-Community/261363020730608">Alumni Planning committee</a>.
-    </li>
-    </ul>
-        </tr></td> 
-      <tr><td>
-      <b>CMU Laptop Rehab</b>
-      <br>
-    <p align="left">A bunch of us refurbish old laptops and desktops and donate them to schools. <A href="https://sites.google.com/site/cmulaptoprehab/">Read more!</A></p>
-        <br>
-    </td></tr> 
-     </tbody></table>
-
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        
-  <tbody><tr><td>
-       <h1>Miscellaneous Projects</h1>
-               <p style = "text-align:justify"> Some fun projects from the past.</p> 
-     </tr></td>
-  </tbody></table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="25%"><img src="images/BO_NN.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="center">
-              <p><b>Bayesian Optimization with a Neural Network Kernel</b>
-<br> Akshara Rai, <b>Ruta Desai</b>, and Siddharth Gopal<br>
- <br><a href="./files/BO_NN.pdf">PDF</A> 
-        <br>
-            </td>
-          </tr> </tbody>
-</table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <td width="15%"><img src="images/fountainFig.png" alt="" width="275" style="border-style: none">
-            </td><td width="64%" valign="center">
-              <p><b>Personalized Fountains that Create 3D Shapes Out of Water</b>
-<br> <b>Ruta Desai</b> and Arun Srivatsan Rangaprasad<br>
- <br><a href="./files/fountain.pdf">PDF</A>  | <a href = "https://www.youtube.com/watch?v=s4gPyIxHUZY"> Video</a> (duck-shaped fountain)
-                <p>
-        <br>
-            </td>
-          </tr>
-
-  </tbody>
-</table>
-
-<script type="text/javascript">
-
-
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script><script src="./aayushb_wfiles/ga.js" type="text/javascript"></script> <script type="text/javascript">
-try {
-        var pageTracker = _gat._getTracker("UA-39749944-1");
-        pageTracker._trackPageview();
-        } catch(err) {}
-        </script>
-      </td>
-    </tr>
-  </tbody></table>
-
-<br>
-
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-  <tr><td>
-        <p align="right"><font size="2">
-    Last updated: September 2018
-        <p align="right"><font size="2">
-Webpage adapted from <a href="http://www.cs.berkeley.edu/~barron/">Jon Barron.</a>
-</font></p>
-
-</td></tr>
-</table>
-
-      </td>
-    </tr>
-  </table>
-
 
 </body></html>
