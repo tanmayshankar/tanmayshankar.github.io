@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/</loc>
+  <lastmod>2018-12-30T13:36:13+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/misc/CV_Suddhu.pdf</loc>
+  <lastmod>2018-12-29T07:07:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/data/papers/RAL_ICRA2019.pdf</loc>
+  <lastmod>2018-12-29T07:06:46+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/data/papers/wm18_final.pdf</loc>
+  <lastmod>2018-12-29T07:07:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/data/papers/wm18_presentation.pdf</loc>
+  <lastmod>2018-12-29T07:06:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/data/papers/RISS2016.pdf</loc>
+  <lastmod>2018-12-29T07:07:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/data/media/course-projects/TAMP4ParfaitsReport.pdf</loc>
+  <lastmod>2018-12-29T07:07:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.cs.cmu.edu/~sudhars1/data/media/course-projects/LinesPointsSFM.pdf</loc>
+  <lastmod>2018-12-29T07:07:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
