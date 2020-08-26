@@ -1,0 +1,629 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tactile Mapping and Localization</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ac90644a-9cd9-43e3-8fef-07e8541b4071" class="page sans"><header><img class="page-cover-image" src="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/tactilemap.png" style="object-position:center 35.85%"/><h1 class="page-title">Tactile Mapping and Localization</h1></header><div class="page-body"><p id="3ad153e6-73a1-4ee2-88e2-9e3c93978208" class="block-color-gray">Maria Bauza, Oleguer Canal, Alberto Rodriguez </p><p id="36ca0374-10d5-49aa-ace2-bcb9e3228854" class="">
+</p><figure id="24b6dcb0-fb79-4578-a392-a033cd440964" class="link-to-page"><a href="https://www.notion.so/Followup-Object-pose-estimation-with-geometric-tactile-rendering-24b6dcb0fb794578a392a033cd440964">Followup: Object pose estimation with geometric tactile rendering</a></figure><h2 id="a52b03d5-92ce-417d-b9ae-56846747835d" class="">Summary [<a href="https://www.youtube.com/watch?v=uMkspjmDbqs">video</a>, <a href="https://arxiv.org/abs/1904.10944">paper</a>]</h2><ul id="02f036df-1f08-4097-8347-8bafead9543b" class="bulleted-list"><li>Reconstruction and localization using GelSlim</li></ul><ul id="d7a28c54-f09c-4c2e-9b09-d4f8682bb1b1" class="bulleted-list"><li>Accurate offline model generation, followed by online localization</li></ul><h2 id="299bb249-a407-45d5-bf00-10bd8f0a309f" class="">Introduction</h2><ul id="66b8fa21-5387-4fc3-ab91-415be2ca88fa" class="bulleted-list"><li>Motivation for GelSlim: High spatial resolution correlates to dexterity </li></ul><ul id="810fa9e7-9846-4dd2-9452-39299a046a0c" class="bulleted-list"><li><strong>Dense tactile descriptors:</strong> Can perform regression on dense signals </li></ul><ul id="aa250758-15ff-42ef-b29b-f98299985432" class="bulleted-list"><li><strong>Crisp tactile memory:</strong> Data-association of tactile imprints </li></ul><ul id="23533766-b76b-49d1-81d2-cf5f67ae80ca" class="bulleted-list"><li>Contributions: <ul id="1bc9ac92-5b9e-4389-9eb5-53f85ebe387a" class="bulleted-list"><li><strong>Local shape estimation:</strong> tactile imprint → CNN → local shape </li></ul><ul id="12418c8d-3a7f-47f4-a6e8-a7e55d1932eb" class="bulleted-list"><li><strong>Global tactile mapping: </strong>Combine tactile imprints with kinematics to get global shape</li></ul><ul id="8d7ca7f2-e2ae-491f-a3f5-c6d59526847f" class="bulleted-list"><li><strong>Object tactile localization: </strong>localize grasped object local shape to global model matching</li></ul></li></ul><p id="7bdc02b1-7681-4a55-b583-38b0efbf1c59" class="">
+</p><h2 id="3ebd504e-2e7c-449b-bb9f-7c5f6499ce8d" class="">Related work</h2><ul id="5aa5b28c-e763-4454-86ab-b61361fed507" class="bulleted-list"><li>Vision (Mapping in SLAM) is prone to occlusion </li></ul><ul id="df7db4b4-0137-4c46-9cba-f4d0e5e90440" class="bulleted-list"><li>Survey paper on tactile estimation (<a href="https://www.sciencedirect.com/science/article/pii/S0957415817301575?casa_token=iStgyr2tJKgAAAAA:NeHYK_6m7rildQurKkV1NJzWm5PhOraXSjaQwkuE2hqw8NeO_Gf3PVNMctgNVK3dwf5nmQG3j_Q">Luo et al.</a>)</li></ul><ul id="8058a1d3-a2b1-4255-8eee-7fac15a96d08" class="bulleted-list"><li>Object motion and shape recovery: (<a href="https://ieeexplore.ieee.org/document/5980363/">Pezzementi et al.</a>, <a href="https://www.mdpi.com/1424-8220/14/2/3227">Aggarwal et al.</a>)</li></ul><ul id="22c30c55-7638-4e47-881b-6a0307282b99" class="bulleted-list"><li>GelSlim vs. GelSight</li></ul><p id="4238c9cc-48c9-44be-894f-5d4a9517becf" class="">
+</p><h2 id="8ad47442-552b-46f4-b214-f4470a7f7b19" class="">Approach: Tactile mapping and localization</h2><ul id="b03b899a-d5ed-4db1-9f5e-51ee5f381292" class="bulleted-list"><li>Comprises of three parts: <ol id="693a81e3-6069-401f-ba33-261870cc4743" class="numbered-list" start="1"><li>local shape estimation</li></ol><ol id="4d19ac82-03e9-4691-b627-5e4b4ced95cc" class="numbered-list" start="2"><li>global tactile and shape matching</li></ol><ol id="f6e5cb29-cb53-48e7-8c4e-d2d8e93f720f" class="numbered-list" start="3"><li>identification and localization </li></ol></li></ul><p id="55ee3a9f-bcc7-4f6b-aa20-349fbf8624f7" class="">
+</p><h2 id="eb236cf7-83ff-4d3e-9b0a-6a2d8732e53f" class="">Local shape estimation </h2><figure id="85d9f5f2-e704-485b-9e45-13acb0ad83e9" class="image"><a href="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled.png"><img style="width:1450px" src="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled.png"/></a></figure><ul id="769c4207-b540-4e3d-90a9-0b7f233d32d0" class="bulleted-list"><li>Training with objects of known heightmaps and tactile imprint images <ul id="a8acced8-fbef-450b-b18a-93fb6a2c772b" class="bulleted-list"><li>600 pairs of heightmaps and imprints </li></ul></li></ul><ul id="ab83ff87-21a6-46d5-8669-74aa38ab0dee" class="bulleted-list"><li>Standard CNN to train this mapping <ul id="11465f63-5902-4730-b33f-643a38c07739" class="bulleted-list"><li>Augment with random noise in 3 channels </li></ul><ul id="474db67f-c1c3-45e9-9676-1213975f36e4" class="bulleted-list"><li>Adding extra channels for translation <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x, y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span></span><span>﻿</span></span> information </li></ul><ul id="237846be-5c1f-42f4-9434-b3e3331c084b" class="bulleted-list"><li>More information: <a href="https://www.google.com/search?q=tactile+localization+mcube&amp;rlz=1C5CHFA_enUS888US888&amp;oq=tactile+localization+mcube+&amp;aqs=chrome..69i57.4456j1j1&amp;sourceid=chrome&amp;ie=UTF-8">website</a></li></ul></li></ul><ul id="02591c01-712a-49c3-bae5-84f4bb8ae936" class="bulleted-list"><li>Evaluation: </li></ul><figure id="54f3c8a4-7420-4797-b92e-95bea555c844" class="image"><a href="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%201.png"><img style="width:384px" src="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%201.png"/></a></figure><h2 id="ab67d238-8602-47e8-afdd-97dc12cf44dd" class="">Global tactile and shape mapping</h2><ul id="f8b322de-3c97-4d1b-9444-fb0af4ba40f2" class="bulleted-list"><li>Combines tactile imprints to get a global shape</li></ul><ul id="0fae521e-759d-46ac-8f1f-c26c67b6f6dc" class="bulleted-list"><li>Heightmap → local point cloud via calibration</li></ul><ul id="9f82eeae-9e34-4afd-b3ab-dd1121939c6a" class="bulleted-list"><li>Stitch all point clouds using the kinematic information<ul id="785bbf30-7f73-4294-b2ac-15195e6a9390" class="bulleted-list"><li>Do they not do alignment, naive method?</li></ul></li></ul><figure id="cf822552-068a-4c8e-8d3d-9e2e4d2b067b" class="image"><a href="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%202.png"><img style="width:1334px" src="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%202.png"/></a></figure><h2 id="1f2de5e8-26ed-4a8c-98c0-0eb9c9a5d64b" class="">Tactile localization</h2><ul id="840eefb9-819a-4b01-b275-f4075412d930" class="bulleted-list"><li>Find correspondence between global tactile shape and local tactile imprints </li></ul><ul id="0ff5e8aa-597f-4d02-aab0-a44f19254495" class="bulleted-list"><li>Steps: <ol id="3e14a237-cc56-4b64-8673-1ae04fcc1f96" class="numbered-list" start="1"><li>Tactile imprint → heightmap → local shape (Section 4)</li></ol><ol id="d4a523e2-3df4-43c4-a356-f3c194cf8cf7" class="numbered-list" start="2"><li>Stitch local shape to global object <ul id="3abeb6ad-9756-4265-9691-436e1c693406" class="bulleted-list"><li>RANDOM: randomly selected pose </li></ul><ul id="195fe042-03ac-4e88-8902-55dec133f32b" class="bulleted-list"><li>CTI: Quantify touch similarity via network and gripper size, use this pose </li></ul><ul id="e4ada1ea-1e25-489c-b9a8-a816173bef4c" class="bulleted-list"><li>CTI-ICP-N: Get N closest images, stitch to get auxilary point cloud, and do ICP to align with that<ul id="2f30f7ec-9edc-42d9-9404-e85ad54b9eeb" class="bulleted-list"><li>If N = all imprints, it becomes ICP between local point cloud and global model</li></ul></li></ul></li></ol><ol id="4b14ffc6-a738-4915-b2e7-aa498e26f4ea" class="numbered-list" start="3"><li>Get object pose via kinematics</li></ol></li></ul><figure id="59e85f71-d666-4f03-9066-68bd8da7c6a8" class="image"><a href="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%203.png"><img style="width:1434px" src="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%203.png"/></a></figure><p id="f509e166-855c-4a73-b42e-75208929f41c" class="">
+</p><h2 id="957f28a9-0b9d-4a3e-ada7-60a540108cd1" class="">Results</h2><figure id="5183773c-77be-401f-9b54-4c9de0031a1b" class="image"><a href="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%204.png"><img style="width:1344px" src="Tactile%20Mapping%20and%20Localization%2085d9f5f2e704485b9e4513acb0ad83e9/Untitled%204.png"/></a></figure><p id="01cdf802-46e3-4a5c-9646-34d388ef6e76" class="">
+</p><h2 id="9013d131-7d66-478c-89ae-201a1f5a2210" class="">Discussion and future work</h2><ul id="e61b2b29-a82d-49cc-96a5-9654815467ec" class="bulleted-list"><li>Combining visual information: <ul id="a08244fd-0f24-4ea9-8526-97e468871add" class="bulleted-list"><li>Practical system will incorporate vision to get better maps </li></ul><ul id="f15503f3-e805-4db0-83f2-33610fea54fd" class="bulleted-list"><li>Need a probabilistic way to combine sensing modalities (GPIS?)</li></ul></li></ul><ul id="838d977f-9831-4476-a738-e563e8495213" class="bulleted-list"><li>Prior information:<ul id="2e0f90d9-8afa-4c2b-8a56-ae6b3c071497" class="bulleted-list"><li>Shape priors to bootstrap algorithms (GP 3D priors) </li></ul></li></ul><ul id="d31ce998-c9f1-4624-aad7-d113213b9167" class="bulleted-list"><li>Handling negative information: <ul id="9ba9f15a-2eac-4e7a-997d-fa051ed85d79" class="bulleted-list"><li>Lack of contact is also information (GP will take care of this) </li></ul></li></ul><ul id="11a0143c-999a-4b00-9a74-960a3f4298a3" class="bulleted-list"><li>Stitching: <ul id="87355588-8de2-4019-a242-5cc10b1251e9" class="bulleted-list"><li>ICP has been found to be challenging (why is the global map not stitched together?) </li></ul><ul id="aa2ff54c-704c-47e6-a83a-715aa3f35f3f" class="bulleted-list"><li>Can we move away from sparse representations? </li></ul><ul id="47d1c762-479e-4a7c-969e-995ad2faef3d" class="bulleted-list"><li>3D descriptors for point clouds? </li></ul><p id="8ca11a49-c6a1-4ca3-9099-3ff0394496ff" class="">
+</p></li></ul></div></article></body></html>

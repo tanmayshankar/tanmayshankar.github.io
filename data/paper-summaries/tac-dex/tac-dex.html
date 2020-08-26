@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tactile Dexterity: Manipulation Primitives with Tactile Feedback</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="99c69059-52e1-415f-88f9-3ec94c1b9e94" class="page sans"><header><img class="page-cover-image" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/tacdex.png" style="object-position:center 87.98%"/><h1 class="page-title">Tactile Dexterity: Manipulation Primitives with Tactile Feedback</h1></header><div class="page-body"><p id="7cce16a8-0558-4097-9485-4486bb0f532f" class="block-color-gray">Francois R. Hogan, Jose Ballester, Siyuan Dong, Alberto Rodriguez</p><h2 id="5bdc24e0-3aed-42af-840b-b45d0d588a1b" class="">Summary [<a href="https://youtu.be/f59FoS-hV7c">video</a>] [<a href="https://arxiv.org/abs/2002.03236">paper</a>]</h2><ul id="7a7ca79c-261b-412d-b9a3-ac0cb7724102" class="bulleted-list"><li>Closed loop tactile controller for dual palm </li></ul><ul id="dd1b210d-ec44-4cf1-a781-dc7ea26d0769" class="bulleted-list"><li>Contact state and object state control (one compensates for the other)</li></ul><ul id="15c9ac4c-f432-409c-8000-a00a662c9f1f" class="bulleted-list"><li>Decompose plans into a set of primitives </li></ul><ul id="05c33a0d-d6cf-4a36-b06a-ea1c25827182" class="bulleted-list"><li><strong>Key question:</strong> How do we structure manipulation planning to use tactile feedback? </li></ul><h2 id="ac72f4f9-7cb3-4621-ad67-372a47abb67b" class="">Introduction </h2><ul id="e14646d8-a868-4158-a11a-be0725df332b" class="bulleted-list"><li>Critique on vision-based sensing: <ul id="e7e780c3-d6a2-48b1-b3e4-e41cbc79c3bf" class="bulleted-list"><li>Tough for accurate, dextrous manipulation </li></ul><ul id="aed30ff7-d6b5-4f6e-bdae-171a913c10d0" class="bulleted-list"><li>Eg: object re-orientation, insertion</li></ul></li></ul><ul id="32b47dfc-0072-4dfd-ad00-d81fb0719d9d" class="bulleted-list"><li>Motivation for tactile sensing: <ul id="56bc39bf-4a71-4a1a-9ec3-621c96b58325" class="bulleted-list"><li>Can localize contact geometry</li></ul><ul id="72053e66-da81-481c-8b5a-e0c15e9c951e" class="bulleted-list"><li>Track contact motion </li></ul><ul id="5a1c0d5b-3baa-42f2-8da5-94f4bba45b24" class="bulleted-list"><li>Infer contact forces</li></ul></li></ul><ul id="7588ce9b-3909-40af-a167-80d504cbc113" class="bulleted-list"><li>Tactile dexterity approach: <ul id="9ac934d5-d056-462f-9074-82d6b3037d36" class="bulleted-list"><li>Focuses on contact interactions with rich geometric information for object state estimation</li></ul><ul id="a3727102-ca04-41d3-832f-fede49da208a" class="bulleted-list"><li>Four manipulation primitives: <code>grasp</code>, <code>push</code>, <code>pivot</code>, and <code>pull</code></li></ul><ul id="e5c1d465-c651-4c66-826e-2c446983b518" class="bulleted-list"><li>State control is divided into controlling <code>contact state</code> and <code>object state</code></li></ul></li></ul><ul id="f36e6bb2-444f-4f8d-b9c1-b8318c5269c7" class="bulleted-list"><li>Tested with GelSlim moving object from start to target pose </li></ul><p id="2bb7f417-10a4-4129-bf73-5bf7e308a7c2" class="">
+</p><h2 id="c65b26be-90ec-438b-a796-d0e210104285" class="">Related work </h2><ul id="f4d8c8a0-5777-4c6a-bd0f-01a5685d447f" class="bulleted-list"><li>Slip control<ul id="5a7cffcf-1973-48e5-93ab-f9f56fe97822" class="bulleted-list"><li>To ensure stable grasp and sticking contact </li></ul><ul id="3ded224e-f464-44af-8b96-0b5a487b43df" class="bulleted-list"><li>Vision-based slip-detection used in this work: <a href="https://ieeexplore.ieee.org/document/8793538">Dong et al</a></li></ul></li></ul><ul id="3e7edf1e-684f-4dab-ba86-d2c3d08f2c8f" class="bulleted-list"><li>Pose control<ul id="86a59ab2-1680-4075-95b6-bbbdeea6bfcb" class="bulleted-list"><li>Gelsight object pose estimation: <a href="https://ieeexplore.ieee.org/document/6943123">Li et al, </a> <a href="https://ieeexplore.ieee.org/document/8794298">Bauza et al</a></li></ul><ul id="4bc9de57-6bd1-48af-99d5-90e101800a23" class="bulleted-list"><li><a href="https://ieeexplore.ieee.org/document/7989460">Izatt et al </a>work with 3D point clouds from gelSight</li></ul></li></ul><ul id="c3dea4b8-979c-45ef-9747-03ea4283e96c" class="bulleted-list"><li>Dextrous manipulation<ul id="3718f4dc-ec9c-470e-a5e1-b4c0230324c7" class="bulleted-list"><li>Based on prior work of constructing complex behaviors from simple manipulation primitives</li></ul><p id="dbc402db-44fe-4eb7-b330-5edb0bbf30c4" class="">
+</p></li></ul><h2 id="27bcf0e2-9daf-414f-b656-b449b278d969" class="">Manipulation primitives</h2><ul id="66735613-334e-4de2-9bb9-d2c429f70123" class="bulleted-list"><li>Assumptions: <ul id="296358d8-3618-4137-b01b-0663c1a4c158" class="bulleted-list"><li>Known {object, robot, environment} geometry</li></ul><ul id="2cac186e-15c7-42e4-9926-f4f9fa854a3d" class="bulleted-list"><li>Known <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">μ</span></span></span></span></span><span>﻿</span></span>, uniform pressure distribution</li></ul><ul id="e6ef1135-e04f-41f0-8a8f-2f16f9e34e59" class="bulleted-list"><li>Rigid bodies, Coulomb&#x27;s friction, QS interactions</li></ul></li></ul><ul id="fd184d5b-3667-4d61-a65b-685573d115ac" class="bulleted-list"><li>Unmodelled aspects (deformation of contact, non-uniform pressure, inertia) are handled by closed loop tactile feedback </li></ul><ul id="1f6ca03b-5a81-4293-b0c5-5244ff1dbd1d" class="bulleted-list"><li>Force equilibrium: <figure id="d79442e9-b875-4859-8209-f2b83089b267" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled.png"><img style="width:412px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled.png"/></a></figure></li></ul><p id="54058765-58e9-4d09-bc35-9960539316a1" class="">
+</p><ul id="23caf3ea-fccf-43e7-b30d-e5e11edaeaa5" class="bulleted-list"><li>Notes on twists and wrenches: <a href="http://www2.ece.ohio-state.edu/~zhang/RoboticsClass/docs/LN10_GeneralizedForce_a.pdf">Link</a></li></ul><div id="526bf4cf-4521-4eb1-8bb4-a6ef59c83da5" class="column-list"><div id="52db3a3a-2e7d-4651-b838-b6bb9b4b9f1a" style="width:50%" class="column"><figure id="17904a6c-b563-4a81-a922-5ca279cd4c99" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%201.png"><img style="width:528px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%201.png"/></a></figure></div><div id="c426c3d9-ccef-4029-9def-f399d70b70ba" style="width:50%" class="column"><figure id="b3037f83-04f7-476f-8efb-0e9e7f1c57f2" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%202.png"><img style="width:528px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%202.png"/></a></figure></div></div><ul id="d6f02ff9-bf53-4aec-990e-1c4e2454c238" class="bulleted-list"><li>Contact forces are constrained by Coloumb&#x27;s law: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>n</mi><mo separator="true">,</mo><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{n, i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> normal component, <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>t</mi><mo separator="true">,</mo><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{t, i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> tangential component</li></ul><figure id="555e17b8-0e8d-4a92-ad4e-c50c196ad38e" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%203.png"><img style="width:212px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%203.png"/></a></figure><h2 id="ee31840b-c994-4139-8802-222892039edf" class="">Tactile control</h2><ul id="464df05c-3af5-4b0e-8649-f6120a0838f2" class="bulleted-list"><li>Enforces a required contact state between palms and object</li></ul><p id="29a2cdb9-450c-44b7-bee8-ff539a2d89ca" class="">
+</p><h3 id="06e5e0ac-fb12-4e60-8d0d-bdbe4ff62b16" class="">Contact state control</h3><ul id="a90dbb36-8883-43fd-b16a-97fba05605c4" class="bulleted-list"><li><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>∈</mo><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">s_i  \in \{ 0, 1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span></span><span>﻿</span></span> slip signal at contact <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span></span><span>﻿</span></span> based on Dong et al. </li></ul><ul id="c7e737d2-88e3-4b47-82e4-fae392c0b9bf" class="bulleted-list"><li>Coulomb friction cone</li></ul><figure id="4706a0ad-b34b-4b6c-9a20-5aa56add2277" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%204.png"><img style="width:384px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%204.png"/></a></figure><ul id="81547aaf-9bc5-4489-b663-ac5f4f8b14a0" class="bulleted-list"><li>Feasible robot pose search is a convex optimization problem: <ul id="0c749190-4e57-4c6b-afea-1de5320f6d04" class="bulleted-list"><li>why non-convex? Because <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">ϕ</span></span></span></span></span><span>﻿</span></span> is non-linear and static equilibrium constraint is bilinear</li></ul></li></ul><figure id="c59874f4-8af8-4bd6-b226-2af639f3dded" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%205.png"><img style="width:528px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%205.png"/></a></figure><ul id="ad2b69b0-69ba-475d-8055-02c275692930" class="bulleted-list"><li>Relaxation: <ul id="895b124d-1d94-48b4-a4db-69af2587f28e" class="bulleted-list"><li>Relaxed to a convex problem via mixed integer programming method (<a href="https://ieeexplore.ieee.org/document/8141917/">Cabezas et al.</a>) to get a surrogate margin <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span></span><span>﻿</span></span> </li></ul><ul id="6a862645-7d4d-4013-84dd-04a1972df08d" class="bulleted-list"><li>Linearize the static equilibrium equation about current configuration <figure id="f697ac10-2ff5-46e4-88e3-600fcefc3b41" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%206.png"><img style="width:480px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%206.png"/></a></figure><p id="3ed10d56-c096-4ca3-b5e1-8e41bc79c7e9" class="">
+</p></li></ul></li></ul><h3 id="e88ebad1-8328-4cc9-a83b-02c6d40423ed" class="">Object state control</h3><ul id="0ff6d79b-23de-4b80-afd0-9665319fc6a5" class="bulleted-list"><li>Tactile controller fights external perturbations but object trajectory is disturbed</li></ul><div id="c83c0e32-b89f-4871-88da-c9060e6c0e01" class="column-list"><div id="7a31d2eb-648d-4e39-918e-bd215dfd8e79" style="width:31.25%" class="column"><ul id="94aec9c0-b274-4e9c-9eb9-3f99b92f7339" class="bulleted-list"><li>Two kinds of tracked features: <ul id="7724e539-86fc-44df-8645-31b086aedc09" class="bulleted-list"><li>points (corners)</li></ul><ul id="170e76b8-33fa-410d-90e6-a6ca87aada6e" class="bulleted-list"><li>lines (edges)</li></ul></li></ul></div><div id="4e352e7a-6777-4986-bfd6-c18a42ade45f" style="width:68.75%" class="column"><figure id="87808164-6f3e-4b37-8737-1085d8230eef" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%207.png"><img style="width:480px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%207.png"/></a></figure></div></div><ul id="40308435-4a6a-4f3d-973b-941bbe95d861" class="bulleted-list"><li>Tactile state estimation is formulated as an optimization problem: <ul id="86043833-363d-4235-99ac-40c7cfe804b7" class="bulleted-list"><li>Update object pose <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">p_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> such that the two geometric constraints are satisfied </li></ul><ul id="546efe3d-0ca0-4f2b-adc6-6bd90df7a08b" class="bulleted-list"><li>Error between previous and updated pose <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>T</mi><mi>S</mi></mrow></msub><mo stretchy="false">(</mo><msub><mi>p</mi><mn>0</mn></msub><mo separator="true">,</mo><msubsup><mi>p</mi><mn>0</mn><mo>∗</mo></msubsup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d_{TS}(p_0, p_0^*)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">T</span><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.688696em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span><ul id="60bc949c-a78d-49c2-8261-c1af7f7d1aac" class="bulleted-list"><li>Weighted sum of <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi mathvariant="double-struck">R</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> euclidean and great circle angle metric in SO(3) (<a href="https://ieeexplore.ieee.org/document/7759814/">Holladay et al.</a>)</li></ul></li></ul><ul id="90882cd6-fce1-441d-add5-38c62ea9b130" class="bulleted-list"><li>Enforce known model to align detected lines with model, and detected edges with points </li></ul><ul id="66a34a51-3449-4d76-8f7d-68f93c4e4a21" class="bulleted-list"><li>Additionally, pose must be consistent with current primitive </li></ul><p id="8813b1e6-a9a1-4ce7-8f59-7d42a734a453" class="">
+</p></li></ul><h2 id="c10cffbc-8586-4277-a427-e07d90c87760" class="">Planning </h2><ul id="9c7fb220-90b8-401a-80e4-a4fb1c98928a" class="bulleted-list"><li>Builds primitive sequence (high level plan) </li></ul><ul id="6a261568-3f0e-4757-ba4d-9e870119c3f8" class="bulleted-list"><li>Plans trajectory for each primitive (low level plan)<ul id="80051310-3ee4-47b2-a82b-bb5646b15b5a" class="bulleted-list"><li>estimated object poses fed here to re-calculate on the fly</li></ul></li></ul><figure id="6126365a-d984-472f-b6c0-238e4863869f" class="image"><a href="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%208.png"><img style="width:480px" src="Tactile%20Dexterity%20Manipulation%20Primitives%20with%20Tac%20d79442e9b87548598209f2b83089b267/Untitled%208.png"/></a></figure><h2 id="9b911ce9-7965-4b76-82f3-700f023c301c" class="">Results</h2><ul id="18f6eee0-3358-49ff-afe1-8ccc0ab36aa7" class="bulleted-list"><li>Real-world two-palm system on the ABB YuMi </li></ul><h2 id="200f6935-3b2e-4d64-8077-8950182b4672" class="">Discussion (Future work)</h2><h3 id="5e7e276c-1043-423b-ada9-25279ffefaee" class="">General manipulation primitives </h3><ul id="c5dd667b-40b3-4fb4-9ea1-e9c7c4c2ad1f" class="bulleted-list"><li>Richer contact information can help primitives (contact switches, stick/slip)</li></ul><ul id="d3533667-dc2c-4102-8de7-f95d19d8e812" class="bulleted-list"><li>They will benefit from real-time tactile observations of contact &#x27;</li></ul><h3 id="34619f36-aa37-40a9-9746-8e95a3d9d534" class="">Object tracking</h3><ul id="1eb3ded7-c82e-4d8f-9b87-d5bf84846723" class="bulleted-list"><li>Characterize object pose directly from tactile feedback </li></ul><ul id="0102110a-a890-4f77-bf17-a64cb93b5a8a" class="bulleted-list"><li>Combining touch with vision</li></ul><h2 id="6818bee8-06aa-4710-979f-b619da09a639" class="">Where we come in: </h2><ul id="b4330fad-f38a-4a30-81d5-a5b3605d3e78" class="bulleted-list"><li>Robust estimation pipeline for object pose </li></ul><ul id="be26c26c-4af2-43b4-bf0e-c35dcdf5c7de" class="bulleted-list"><li>Running estimate of contact locations, forces [What does this entail?]</li></ul></div></article></body></html>
