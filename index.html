@@ -12,6 +12,13 @@
   <style type="text/css">
     /* Color scheme stolen from Sergey Karayev */
     
+    hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
     img {
     border-radius: 5%;
     }
@@ -129,18 +136,6 @@
 </head>
 <body>
 
-  <!-- dark mode! -->
-  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-  <script>
-    var options = {
-      time: '0.5s', // default: '0.3s'
-      label: 'dark', // default: ''
-    }
-  
-    const darkmode = new Darkmode(options);
-    darkmode.showWidget();
-  </script>
-
   <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
     <tbody><tr>
       <td>
@@ -152,8 +147,8 @@
               <p align="center">
                 <font size="3">suddhu <font color=#FF0000>[at]</font> cmu <font color=#FF0000>[dot]</font> edu </font>
               </p>
-              <p><p style = "text-align:justify">I'm a PhD student in the <A href="http://www.ri.cmu.edu/" target="_blank">Robotics Institute</A> at <A href="http://www.cmu.edu" target="_blank"> Carnegie Mellon University</A>,
-                 where I work with <A href="https://www.cs.cmu.edu/~kaess/" target="_blank">Michael Kaess</a> in the <A href="http://rpl.ri.cmu.edu/" target="_blank">Robot Perception Lab</a>. I'm interested in statistical methods for robot perception, state-estimation, and mapping. Currently, I work on inference methods for robot manipulators to comprehend the world.
+              <p><p style = "text-align:justify">I'm a PhD candidate in the <A href="http://www.ri.cmu.edu/" target="_blank">Robotics Institute</A> at <A href="http://www.cmu.edu" target="_blank"> Carnegie Mellon University</A>,
+                 where I work with <A href="https://www.cs.cmu.edu/~kaess/" target="_blank">Michael Kaess</a> in the <A href="http://rpl.ri.cmu.edu/" target="_blank">Robot Perception Lab</a>. I work on statistical methods for mapping and state-estimation, specifically towards robotic tactile perception. I'm also a visiting researcher at Meta AI, where I work with <a href="https://www.mustafamukadam.com/home">Mustafa Mukadam</a>. 
               </p>
               <p><p style = "text-align:justify"> I completed my Masters in Robotics at CMU working with <A href="https://www.cs.cmu.edu/~kaess/" target="_blank">Michael Kaess</a> on visual localization and active exploration for AUVs (<A href="data/papers/Suresh19Thesis.pdf" target="_blank">thesis</a>).
                 Prior to that, I worked with <A href="https://frc.ri.cmu.edu/~red/" target="_blank">Red Whittaker</a> on state-estimation for lunar rovers, and spent time at <A href="https://www.iisc.ac.in/">IISc Bangalore</a> working on visual understanding.
@@ -164,7 +159,7 @@
                 <strong>
                 <a href="misc/CV_Suddhu.pdf" target="_blank">CV</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=xYC738YAAAAJ&hl=en" target="_blank">Scholar</a> &nbsp/&nbsp
-                <a href="https://www.ri.cmu.edu/ri-people/sudharshan-suresh/" target="_blank"> RI webpage </a> &nbsp/&nbsp
+                <a href="https://github.com/suddhu/" target="_blank"> Github </a> &nbsp/&nbsp
                 <a href="https://github.com/suddhu/" target="_blank"> Github </a>
                 </strong>
               </p>
@@ -175,6 +170,42 @@
           </tr>
         </table>
 
+        <hr>
+
+        <h1>Updates</h1>          
+        <table width="100%" align="center" border="0" cellspacing="6" cellpadding="0">
+          <colgroup>
+            <col span="1" style="width: 12%;">
+            <col span="1" style="width: 88%;">
+         </colgroup>
+          <tbody>
+              <tr>
+                  <td><p style="color:FF0000; display:inline;">[Oct '22] &nbsp</p></td>
+                  <td>Successfully passed my Ph.D. thesis proposal!</td>
+              </tr>
+              <tr>
+                <td><p style="color:FF0000; display:inline">[Sep '22] &nbsp</p></td>
+                <td><a href="https://suddhu.github.io/midastouch-tactile/">MidasTouch</a> was accepted to <a href="https://corl2022.org/">CoRL 2022</a> as an oral. 
+                </td>
+              </tr>
+              <tr>
+                <td><p style="color:FF0000; display:inline">[Aug '22] &nbsp</p></td>
+                <td>We've extended <a href="https://joeaortiz.github.io/iSDF/">iSDF</a> for neural mapping with the Franka robot, code <a href="https://github.com/facebookresearch/iSDF#3-running-isdf-with-a-franka-and-live-camera-in-ros">here</a>.</td>
+              </tr>
+              <tr>
+                <td><p style="color:FF0000; display:inline">[May '22] &nbsp &nbsp</p></td>
+                <td>Spending the summer at <a href="https://ai.facebook.com/">Meta AI</a> with <a href="https://www.mustafamukadam.com/publications">Mustafa Mukadam</a> working on tactile perception/SLAM!</td>
+              </tr>
+              <tr>
+                <td><p style="color:FF0000; display:inline">[Jan '22] &nbsp &nbsp</p></td>
+                <td><a href="https://arxiv.org/abs/2109.09884">ShapeMap 3-D</a> was accepted to ICRA 2022, with an open-source <a href="https://github.com/rpl-cmu/shape-map-3D">implementation</a>.</td>
+              </tr>
+          </tbody>
+        </tbody></table>
+        </div>
+        <br>
+        <hr>
+        
         <div style="height:20px;font-size:1px;">&nbsp;</div>
 
         <!-- Research -->
@@ -191,7 +222,7 @@
     <!-- MidasTouch -->
     <tr>
       <td width="25%" align="center">
-        <img src='midastouch/img/midastouch.gif' width="200">
+        <img src='https://suddhu.github.io/midastouch-tactile/img/midastouch.gif' width="200">
       </td>
       <td valign="center" width="70%">
         <details>
@@ -210,9 +241,10 @@
             <div style="height:5px;font-size:1px;">&nbsp;</div>
             [<font color=#009933>Oral: 6% acceptance rate</font>]
             <div style="height:5px;font-size:1px;">&nbsp;</div>
-            <a href="https://openreview.net/forum?id=JWROnOf4w-K"  target="_blank">Openreview</a> /
+            <a href="https://arxiv.org/abs/2210.14210"  target="_blank">paper</a> /
             <a href="https://suddhu.github.io/midastouch-tactile/" target="_blank"><b>website</b></a> /
-            <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">video</a>
+            <a href="https://github.com/facebookresearch/MidasTouch" target="_blank">code</a> /
+            <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">presentation</a>
             <div style="height:15px;font-size:1px;">&nbsp;</div>
           </summary>
           <i>
@@ -241,9 +273,10 @@
                 <div style="height:5px;font-size:1px;">&nbsp;</div>
                 <font color=#696969><em>IEEE Intl. Conf. on Robotics and Automation, ICRA</em>, May 2022</font>
                 <div style="height:5px;font-size:1px;">&nbsp;</div>
-                <a href="https://arxiv.org/abs/2109.09884"  target="_blank">arXiv</a> /
+                <a href="https://arxiv.org/abs/2109.09884"  target="_blank">paper</a> /
                 <a href="https://www.cs.cmu.edu/~sudhars1/shape-map/" target="_blank"><b>website</b></a> /
-                <a href="https://youtu.be/y3uCoj7qOgA" target="_blank">video</a>
+                <a href="https://github.com/rpl-cmu/shape-map-3D" target="_blank">code</a> /
+                <a href="https://youtu.be/y3uCoj7qOgA" target="_blank">presentation</a>
                 <div style="height:15px;font-size:1px;">&nbsp;</div>
               </summary>
               <i>Can we efficiently reconstruct household objects with touch and vision?</i> We harness the GelSight sensor and a depth-camera for 3-D shape perception, as inference on a spatial graph informed by a Gaussian process.
@@ -274,14 +307,10 @@
                   <div style="height:5px;font-size:1px;">&nbsp;</div>
                   [<font color=#009933>Finalist for the 2021 IEEE ICRA Best Paper Award in Service Robotics</font>]
                   <div style="height:5px;font-size:1px;">&nbsp;</div>
-                  <a href="https://arxiv.org/abs/2011.07044"  target="_blank">arXiv</a> /
+                  <a href="https://arxiv.org/abs/2011.07044"  target="_blank">paper</a> /
                   <a href="https://www.cs.cmu.edu/~sudhars1/tactile-slam/" target="_blank"><b>website</b></a> /
                   <a href="https://youtu.be/77VnwArHOhk" target="_blank">presentation</a>
                   <div style="height:15px;font-size:1px;">&nbsp;</div>
-                  <em><a href="http://wordpress.csc.liv.ac.uk/smartlab/vitac-2020/" target="_blank">ICRA '20 ViTac workshop</a>: Closing the Perception-Action Loop with Vision and Tactile Sensing</em>
-                  <div style="height:5px;font-size:1px;">&nbsp;</div>
-                  <a href="data/papers/Suresh20vitac.pdf" target="_blank">pdf</a> /
-                  <a href="https://www.youtube.com/watch?v=EtHWSsLyy3E" target="_blank">presentation</a>
                   <div style="height:10px;font-size:1px;">&nbsp;</div>
                 </summary>
                 <i>Can we estimate object shape and pose in real-time through purely tactile sensing?</i> We demonstrate this for planar pushing, combining Gaussian process implicit surfaces with factor-graph based inference.
@@ -310,8 +339,8 @@
                   <div style="height:5px;font-size:1px;">&nbsp;</div>
                   <em>IEEE Intl. Conf. on Robotics and Automation, ICRA</em>, May 2020
                   <div style="height:10px;font-size:1px;">&nbsp;</div>
-                  <a href="http://www.cs.cmu.edu/~kaess/pub/Suresh20icra.pdf" target="_blank">pdf</a> /
-                  <a href="https://youtu.be/4HgdWJlL8JY" target="_blank">video</a>
+                  <a href="http://www.cs.cmu.edu/~kaess/pub/Suresh20icra.pdf" target="_blank">paper</a> /
+                  <a href="https://youtu.be/4HgdWJlL8JY" target="_blank">presentation</a>
                   <div style="height:10px;font-size:1px;">&nbsp;</div>              
                 </summary>
                 <i>How do you balance volumetric exploration and pose uncertainty in exploration?</i> We combine a sampling-based planner, deformable pose graph, and a 3D saliency metric to explore a 3D underwater volume.
@@ -340,8 +369,8 @@
                 <div style="height:5px;font-size:1px;">&nbsp;</div>
                 <em>IEEE Robotics and Automation Letters (RA-L), presented at ICRA 2019</em>, Jan 2019
                 <div style="height:10px;font-size:1px;">&nbsp;</div>
-                <a href="http://www.cs.cmu.edu/~kaess/pub/Suresh19ral.pdf" target="_blank">pdf</a> /
-                <a href="https://youtu.be/fZZTDyLymBs" target="_blank">video</a>
+                <a href="http://www.cs.cmu.edu/~kaess/pub/Suresh19ral.pdf" target="_blank">paper</a> /
+                <a href="https://youtu.be/fZZTDyLymBs" target="_blank">presentation</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>              
               </summary>
               <i>How can you incorporate refraction into water-to-air visual SLAM?</i> We present a novel method inspired by multimedia photogrammetry for underwater localization.
@@ -373,7 +402,7 @@
                 <div style="height:5px;font-size:1px;">&nbsp;</div>
                 <em>Proceedings of the Symposium on Waste Management, Phoenix, Arizona</em>, Mar 2018
                 <div style="height:10px;font-size:1px;">&nbsp;</div>
-                <a href="data/papers/wm18_final.pdf" target="_blank">pdf</a> /
+                <a href="data/papers/wm18_final.pdf" target="_blank">paper</a> /
                 <a href="data/papers/wm18_presentation.pdf" target="_blank">slides</a> /
                 <a href="https://www.youtube.com/watch?v=R6JUAJq4rE4&feature=youtu.be" target="_blank">video</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>        
@@ -416,7 +445,7 @@
                 <div style="height:5px;font-size:1px;">&nbsp;</div>
                 <em>Annual Meeting of the Lunar Exploration Analysis Group</em>, Nov 2016
                 <div style="height:10px;font-size:1px;">&nbsp;</div>
-                <a href="data/papers/RISS2016.pdf" target="_blank">pdf</a> /
+                <a href="data/papers/RISS2016.pdf" target="_blank">paper</a> /
                 <a href="https://youtu.be/-D7WXVTPXuo" target="_blank">video</a> / 
                 <a href="https://www.hou.usra.edu/meetings/leag2016/eposter/5026.pdf" target="_blank">poster</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>   
@@ -458,6 +487,9 @@
     <br>
     <div style="height:20px;font-size:1px;">&nbsp;</div>
 
+    <hr>
+    <br>
+    
     <!-- Projects -->
     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -543,9 +575,9 @@
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
   <tr><td>
         <p align="right"><font size="2" color=#696969>
-    Last updated: circa May 2022
+    Last updated: Oct 2022
         <p align="right"><font size="2" color=#696969>
-<a href="http://www.cs.berkeley.edu/~barron/" target="_blank"><font size="2">Imitation is the sincerest form of flattery
+<a href="http://www.cs.berkeley.edu/~barron/" target="_blank"><font size="2">Imitation is the highest form of flattery
 </a>
 </font></p>
 
