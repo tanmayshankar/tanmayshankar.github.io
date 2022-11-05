@@ -103,30 +103,23 @@
       background-color: #ffffd0;
     }
 
-  details {
-    outline:none;
-    color:#000000;
+
+  #summary:hover + #detail, #detail:hover {
+  display: block;
   }
-  summary {
-      outline:none;
-      color:#000000;
+  #detail {
+  display: none;
   }
-  details[open] {
-      outline:none;
-      color:#696969;
+
+  details summary > * {
+    display: inline;
   }
-  summary[open] {
-      outline:none;
-      color:#000000;
-  }
-  details:hover summary::-webkit-details-marker:hover {
-     color:red;
-     background:white;
-     font-size: 120%;
- }
- summary a * {
-  pointer-events: none;
-  } 
+  summary a * {
+    pointer-events: none;
+    } 
+    details summary::-webkit-details-marker {
+  display:none;
+}
   </style>
   <link rel="icon" href="misc/s_favicon.png">
 
@@ -160,7 +153,7 @@
                 <a href="misc/CV_Suddhu.pdf" target="_blank">CV</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=xYC738YAAAAJ&hl=en" target="_blank">Scholar</a> &nbsp/&nbsp
                 <a href="https://github.com/suddhu/" target="_blank"> Github </a> &nbsp/&nbsp
-                <a href="https://github.com/suddhu/" target="_blank"> Github </a>
+                <a href="https://www.linkedin.com/in/sudharshansuresh/" target="_blank"> LinkedIn </a>
                 </strong>
               </p>
             </td>
@@ -194,6 +187,10 @@
               </tr>
               <tr>
                 <td><p style="color:FF0000; display:inline">[May '22] &nbsp &nbsp</p></td>
+                <td>Organized the <a href="https://www.roboticsdebates.org/">Debates on the Future of Robotics Research workshop</a> at ICRA '22 </td>
+              </tr>
+              <tr>
+                <td><p style="color:FF0000; display:inline">[April '22] &nbsp &nbsp</p></td>
                 <td>Spending the summer at <a href="https://ai.facebook.com/">Meta AI</a> with <a href="https://www.mustafamukadam.com/publications">Mustafa Mukadam</a> working on tactile perception/SLAM!</td>
               </tr>
               <tr>
@@ -225,8 +222,7 @@
         <img src='https://suddhu.github.io/midastouch-tactile/img/midastouch.gif' width="200">
       </td>
       <td valign="center" width="70%">
-        <details>
-          <summary>
+        <div id="summary">
             <papertitle>
               MidasTouch: Monte-Carlo inference over distributions across sliding touch
             </papertitle>                   
@@ -246,21 +242,21 @@
             <a href="https://github.com/facebookresearch/MidasTouch" target="_blank">code</a> /
             <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">presentation</a>
             <div style="height:15px;font-size:1px;">&nbsp;</div>
-          </summary>
+          </div>
+          <div id="detail">
           <i>
             Tracking the pose distribution of a robot finger on an object surface over time, using surface geometry captured by a tactile sensor
-        </details>
+          </div>
       </td>
   </tr>
 
-    <!-- ShapeMap3D -->
+  <!-- ShapeMap3D -->
     <tr>
           <td width="25%" align="center">
             <img src='data/media/shape_map/shape_map.gif' width="200">
           </td>
           <td valign="center" width="70%">
-            <details>
-              <summary>
+            <div id="summary"> 
                 <papertitle>
                   ShapeMap 3-D: Efficient shape mapping through dense touch and vision
                 </papertitle>                   
@@ -278,10 +274,11 @@
                 <a href="https://github.com/rpl-cmu/shape-map-3D" target="_blank">code</a> /
                 <a href="https://youtu.be/y3uCoj7qOgA" target="_blank">presentation</a>
                 <div style="height:15px;font-size:1px;">&nbsp;</div>
-              </summary>
+            </div>
+            <div id="detail">
               <i>Can we efficiently reconstruct household objects with touch and vision?</i> We harness the GelSight sensor and a depth-camera for 3-D shape perception, as inference on a spatial graph informed by a Gaussian process.
-            </details>
-          </td>
+            </div>
+            </td>
       </tr>
       
       <!-- tactile slam -->
@@ -290,8 +287,7 @@
               <img src='data/media/contact_slam/sim_result.gif' width="200">
             </td>
             <td valign="center" width="70%">
-              <details>
-                <summary>
+              <div id="summary">
                   <papertitle>
                     Tactile SLAM: Real-time inference of shape and pose from planar pushing
                   </papertitle>                   
@@ -312,9 +308,10 @@
                   <a href="https://youtu.be/77VnwArHOhk" target="_blank">presentation</a>
                   <div style="height:15px;font-size:1px;">&nbsp;</div>
                   <div style="height:10px;font-size:1px;">&nbsp;</div>
-                </summary>
+                </div>
+                <div id="detail">
                 <i>Can we estimate object shape and pose in real-time through purely tactile sensing?</i> We demonstrate this for planar pushing, combining Gaussian process implicit surfaces with factor-graph based inference.
-              </details>
+                </div>
             </td>
         </tr>
 
@@ -324,8 +321,7 @@
             <img src='data/media/active_sal/active.gif' width="200">
           </td>
           <td valign="center" width="70%">
-            <details>
-              <summary>
+            <div id="summary">
                 <papertitle>
                   Active SLAM using 3D submap saliency for underwater volumetric exploration
                 </papertitle>
@@ -342,9 +338,10 @@
                   <a href="http://www.cs.cmu.edu/~kaess/pub/Suresh20icra.pdf" target="_blank">paper</a> /
                   <a href="https://youtu.be/4HgdWJlL8JY" target="_blank">presentation</a>
                   <div style="height:10px;font-size:1px;">&nbsp;</div>              
-                </summary>
+            </div>
+            <div id="detail">
                 <i>How do you balance volumetric exploration and pose uncertainty in exploration?</i> We combine a sampling-based planner, deformable pose graph, and a 3D saliency metric to explore a 3D underwater volume.
-            </details>
+            </div>
           </td>
         </tr>
 
@@ -356,8 +353,7 @@
             <img src='data/media/refr_slam/refr1.gif'  width="200" height="80">
           </td>
           <td valign="center" width="75%">
-            <details>
-              <summary>
+            <div id="summary">
                 <papertitle>
                   Through-water stereo SLAM with refraction correction for AUV localization
                 </papertitle>
@@ -372,9 +368,10 @@
                 <a href="http://www.cs.cmu.edu/~kaess/pub/Suresh19ral.pdf" target="_blank">paper</a> /
                 <a href="https://youtu.be/fZZTDyLymBs" target="_blank">presentation</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>              
-              </summary>
+              </div>
+              <div id="detail">
               <i>How can you incorporate refraction into water-to-air visual SLAM?</i> We present a novel method inspired by multimedia photogrammetry for underwater localization.
-            </details>
+              </div>
           </td>
         </tr>
 
@@ -386,8 +383,7 @@
             <img src='data/media/doe/checker.gif'   width="200" height="80">
           </td>
           <td valign="center" width="75%">
-            <details>
-              <summary>
+            <div id="summary">
                 <papertitle>
                   Localized imaging and mapping for underwater fuel storage basins 
                 </papertitle>
@@ -406,9 +402,10 @@
                 <a href="data/papers/wm18_presentation.pdf" target="_blank">slides</a> /
                 <a href="https://www.youtube.com/watch?v=R6JUAJq4rE4&feature=youtu.be" target="_blank">video</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>        
-              </summary>
+              </div>
+            <div id="detail">
             <i>What's the ideal sensor suite for underwater dense mapping?</i> We build and demonstrate an inspection solution comprising of a stereo camera, IMU, standard + structured lighting, and depth sensor.
-          </details>
+            </div>
           </td>
         </tr>
 
@@ -420,10 +417,9 @@
             <img src='data/media/riss/est.gif'  width="200" height="80">
           </td>
           <td valign="center" width="75%">
-            <details>
-              <summary>
+            <div id="summary">
                 <papertitle>
-                    Optical kinematic state estimation of planetary rovers using downward-facing monocular fisheye camera 
+                  Camera-Only Kinematics for Small Lunar Rovers 
                 </papertitle>
                 <div style="height:5px;font-size:1px;">&nbsp;</div>
                 <u>S. Suresh</u> ,
@@ -434,24 +430,16 @@
                 <em>Robotics Institute Summer Scholars Working Paper Journal</em>, Nov 2016
                 <br> 
 
-                <div style="height:10px;font-size:1px;">&nbsp;</div>
-                <papertitle>Camera-Only Kinematics for Small Lunar Rovers
-                </papertitle>
-                <div style="height:5px;font-size:1px;">&nbsp;</div>
-                <a href="https://www.ri.cmu.edu/ri-people/eugene-fang/" target="_blank">E. Fang</a>, 
-                <u>S. Suresh</u>,
-                and
-                <a href="https://frc.ri.cmu.edu/~red/" target="_blank">W. L. Whittaker</a> 
-                <div style="height:5px;font-size:1px;">&nbsp;</div>
                 <em>Annual Meeting of the Lunar Exploration Analysis Group</em>, Nov 2016
                 <div style="height:10px;font-size:1px;">&nbsp;</div>
                 <a href="data/papers/RISS2016.pdf" target="_blank">paper</a> /
                 <a href="https://youtu.be/-D7WXVTPXuo" target="_blank">video</a> / 
                 <a href="https://www.hou.usra.edu/meetings/leag2016/eposter/5026.pdf" target="_blank">poster</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>   
-              </summary>
+              </div>
+            <div id="detail">
             <i>Is it possible to track a lunar rover's kinematic state through self-perception?</i> With a downward-facing fisheye lens, we estimate the Autokrawler's kinematics on rugged terrain.
-            </details>
+            </div>
           </td>
         </tr>
 
@@ -461,8 +449,7 @@
             <img src='data/media/iisc/scanpaths.gif'   width="200"  height="120">
           </td>
           <td valign="center" width="75%">
-            <details>
-              <summary>
+            <div id="summary">
                 <papertitle>
                   Object category understanding via eye fixations on freehand sketches
                 </papertitle>
@@ -477,9 +464,10 @@
                 <a href="http://val.cds.iisc.ac.in/sketchfix/" target="_blank"><b>website</b></a> /
                 <a href="https://www.dropbox.com/s/zook724xg256x27/SketchFix-160.zip?dl=0" target="_blank">dataset</a>
                 <div style="height:10px;font-size:1px;">&nbsp;</div>
-              </summary>
+            </div>
+            <div id="detail">
             <i>Can we better understand free-hand sketches through human gaze fixations?</i> We collect the <a href="http://val.cds.iisc.ac.in/sketchfix/" target="_blank">SketchFix-160</a> dataset and investigate visual saliency to reveal multi-level consistency in sketches. 
-            </details>
+            </div>
           </td>
         </tr>
         </table>
@@ -491,21 +479,35 @@
     <br>
 
     <!-- Projects -->
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="100%" valign="middle">
-            <h1>Other projects</h1>
-          </td>
-        </tr>
-      </table>
-
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
-          <!-- Deepgeo-->
+    <h2>Other projects</h2>
+      <table width="90%" align="center" border="0" cellspacing="0" cellpadding="10">
+          <!-- iSDF-->
           <tr>
-            <td width="10%" align="center">
+            <td width="5%" align="center">
+              <img src='https://raw.githubusercontent.com/facebookresearch/iSDF/main/.github/realsense_franka.gif' width="130" height="70">
+            </td>
+            <td valign="center" width="95%">
+                <div id="summary">
+                <papertitle>Franka iSDF: neural mapping for tabletop scenes</papertitle> 
+                <br>
+                <div style="height:3px;font-size:1px;">&nbsp;</div>
+                S. Suresh, J. Ortiz, and M. Mukadam 
+                <div style="height:3px;font-size:1px;">&nbsp;</div>
+                <a href="https://github.com/facebookresearch/iSDF#3-running-isdf-with-a-franka-and-live-camera-in-ros"  target="_blank">github</a>
+                <div style="height:3px;font-size:1px;">&nbsp;</div>
+                </div>
+                <div id="detail">
+                <i>Extending iSDF to build real-time neural models of tabletop scenes with the Franka Panda arm</i>
+                </div>
+            </td>
+          </tr>
+        <!-- Deepgeo-->
+          <tr>
+            <td width="5%" align="center">
               <img src='data/media/course-projects/deepgeo.gif' width="100" height="100">
             </td>
-            <td valign="center" width="90%">
+            <td valign="center" width="95%">
+                <div id="summary">
                 <papertitle>DeepGeo: photo localization with deep neural network</papertitle> 
                 <br>
                 <div style="height:3px;font-size:1px;">&nbsp;</div>
@@ -513,16 +515,20 @@
                 <div style="height:3px;font-size:1px;">&nbsp;</div>
                 <a href="https://arxiv.org/abs/1810.03077"  target="_blank">arXiv</a> / <a href="https://github.com/suddhu/DeepGeo"  target="_blank">github</a>
                 <div style="height:3px;font-size:1px;">&nbsp;</div>
+                </div>
+                <div id="detail">
                 <i>A deep network that beats humans at <a href="https://geoguessr.com/" target="_blank">GeoGuessr</a>, trained on our <i>50States10K</i> dataset.</i>
+                </div>
             </td>
           </tr>
   
           <!-- TAMP -->
           <tr>
-            <td width="10%" align="center">
+            <td width="5%" align="center">
                 <img src='data/media/course-projects/tamp.gif' width="100" height="100">
               </td>
-            <td valign="center" width="90%">
+            <td valign="center" width="95%">
+                <div id="summary">
                 <papertitle>Task and motion planning for robotic food preparation</papertitle> 
                 <br>
                 <div style="height:3px;font-size:1px;">&nbsp;</div>
@@ -531,16 +537,20 @@
                 <a href="data/media/course-projects/TAMP4ParfaitsReport.pdf" target="_blank">pdf</a> /
                 <a href="https://www.youtube.com/watch?v=VBhGjcgPVqA" target="_blank">video 1</a> / <a href="https://www.youtube.com/watch?v=BADt_yy_Lvw" target="_blank">video 2</a>
                 <div style="height:3px;font-size:1px;">&nbsp;</div>
+                </div>
+                <div id="detail">
                 <i>Hierarchical task and motion planning for a 6-DOF robot arm, to prepare yogurt parfaits!</i>
+                </div>
             </td>
           </tr>
   
           <!-- thin structures -->
           <tr>
-              <td width="10%" align="center">
+              <td width="5%" align="center">
                   <img src='data/media/course-projects/thin.gif' width="100" height="100">
             </td>
-            <td valign="center" width="90%">
+            <td valign="center" width="95%">
+                <div id="summary">
                 <papertitle>Thin structure reconstruction via 3D lines and points 
                   </papertitle> 
                   <br>
@@ -549,16 +559,20 @@
                   <div style="height:3px;font-size:1px;">&nbsp;</div>
                   <a href="data/media/course-projects/LinesPointsSFM.pdf" target="_blank">poster</a>
                   <div style="height:3px;font-size:1px;">&nbsp;</div>
+                  </div>
+                  <div id="detail">
                   <i>Reconstructing thin objects in a scene through an SfM pipeline can be hard!</i>
+                  </div>
             </td>
           </tr>
   
           <!-- dyn param -->
           <tr>
-              <td width="10%" align="center">
+              <td width="5%" align="center">
                 <img src='data/media/course-projects/dynparam.png' width="100">
             </td>
-            <td valign="center" width="90%">
+            <td valign="center" width="95%">
+                <div id="summary">
                 <papertitle>Factor graph optimization for dynamic parameter estimation 
                   </papertitle> 
                   <br>
@@ -567,11 +581,14 @@
                   <div style="height:3px;font-size:1px;">&nbsp;</div>
                   <a href="data/papers/16-711_final.pdf" target="_blank">pdf</a>
                   <div style="height:3px;font-size:1px;">&nbsp;</div>
+                  </div>
+                  <div id="detail">
                   <i>We implement a method for estimation of MAV poses and dynamic parameters during flight.</i>
+                  </div>
             </td>
           </tr>
       </table>
-
+    
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
   <tr><td>
         <p align="right"><font size="2" color=#696969>
