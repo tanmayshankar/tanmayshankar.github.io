@@ -6,154 +6,154 @@
 <!-- remove after done debugging!!!! -->
 
 <head>
-  <!-- <meta name=viewport content="width=800"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-  <style type="text/css">
-	/* Color scheme stolen from Sergey Karayev */
-	
-	hr {
-	border: 0;
-	height: 0;
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	<!-- <meta name=viewport content="width=800"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+	<style type="text/css">
+		/* Color scheme stolen from Sergey Karayev */
+		
+		hr {
+		border: 0;
+		height: 0;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		}
+
+		img {
+		border-radius: 5%;
+		}
+
+		a {
+		color: #1772d0;
+		text-decoration: none;
+		}
+		
+		a:focus,
+		a:hover {
+		color: #f09228;
+		text-decoration: none;
+		}
+		
+		body,
+		td,
+		th,
+		tr,
+		p,
+		/* a {
+		font-family: 'Lato', Verdana, Helvetica, sans-serif;
+		font-size: 14px
+		}
+		
+		strong {
+		font-family: 'Lato', Verdana, Helvetica, sans-serif;
+		font-size: 14px;
+		}
+		
+		heading {
+		font-family: 'Lato', Verdana, Helvetica, sans-serif;
+		font-size: 30px;
+		}
+		
+		papertitle {
+		font-family: 'Lato', Verdana, Helvetica, sans-serif;
+		font-size: 14px;
+		font-weight: 700;
+		margin-bottom: 10cm;
+		}
+		
+		name {
+		font-family: 'Lato', Verdana, Helvetica, sans-serif;
+		font-size: 32px;
+		} */
+		a {
+		font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
+		font-size: 16px;
+		font-weight: 400
+		}
+
+		strong {
+		font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
+		font-size: 16px;
+		font-weight: 600
+		}
+
+		heading {
+		font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
+		font-size: 17px;
+		font-weight: 600
+		}
+
+		papertitle {
+		font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
+		font-size: 16px;
+		font-weight: 600
+		}
+
+		name {
+		font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
+		font-size: 32px;
+		font-weight: 400
+		}
+		.zero {
+		width: 160px;
+		height: 80px;
+		position: relative;
+		}
+
+		.one {
+		width: 160px;
+		height: 160px;
+		position: relative;
+		}
+		
+		.two {
+		width: 160px;
+		height: 160px;
+		position: absolute;
+		transition: opacity .2s ease-in-out;
+		-moz-transition: opacity .2s ease-in-out;
+		-webkit-transition: opacity .2s ease-in-out;
+		}
+		
+		.fade {
+		transition: opacity .2s ease-in-out;
+		-moz-transition: opacity .2s ease-in-out;
+		-webkit-transition: opacity .2s ease-in-out;
+		}
+		
+		mid {
+		font-size: 40px;
+		position:relative;
+		top:2px;
+		}
+
+		span.highlight {
+		background-color: #ffffd0;
+		}
+
+
+	#summary:hover + #detail, #detail:hover {
+	display: block;
+	}
+	#detail {
+	display: none;
 	}
 
-	img {
-	border-radius: 5%;
+	details summary > * {
+		display: inline;
 	}
+	summary a * {
+		pointer-events: none;
+		} 
+		details summary::-webkit-details-marker {
+	display:none;
+	}
+	</style>
+	<link rel="icon" href="misc/t_favicon.png">
 
-	a {
-	  color: #1772d0;
-	  text-decoration: none;
-	}
-	
-	a:focus,
-	a:hover {
-	  color: #f09228;
-	  text-decoration: none;
-	}
-	
-	body,
-	td,
-	th,
-	tr,
-	p,
-	/* a {
-	  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-	  font-size: 14px
-	}
-	
-	strong {
-	  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-	  font-size: 14px;
-	}
-	
-	heading {
-	  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-	  font-size: 30px;
-	}
-	
-	papertitle {
-	  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-	  font-size: 14px;
-	  font-weight: 700;
-	  margin-bottom: 10cm;
-	}
-	
-	name {
-	  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-	  font-size: 32px;
-	} */
-	a {
-	  font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	  font-size: 16px;
-	  font-weight: 400
-	}
-
-	strong {
-	  font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	  font-size: 16px;
-	  font-weight: 600
-	}
-
-	heading {
-	  font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	  font-size: 17px;
-	  font-weight: 600
-	}
-
-	papertitle {
-	  font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	  font-size: 16px;
-	  font-weight: 600
-	}
-
-	name {
-	  font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	  font-size: 32px;
-	  font-weight: 400
-	}
-	 .zero {
-	  width: 160px;
-	  height: 80px;
-	  position: relative;
-	}
-
-	.one {
-	  width: 160px;
-	  height: 160px;
-	  position: relative;
-	}
-	
-	.two {
-	  width: 160px;
-	  height: 160px;
-	  position: absolute;
-	  transition: opacity .2s ease-in-out;
-	  -moz-transition: opacity .2s ease-in-out;
-	  -webkit-transition: opacity .2s ease-in-out;
-	}
-	
-	.fade {
-	  transition: opacity .2s ease-in-out;
-	  -moz-transition: opacity .2s ease-in-out;
-	  -webkit-transition: opacity .2s ease-in-out;
-	}
-	
-	mid {
-	  font-size: 40px;
-	  position:relative;
-	  top:2px;
-	}
-
-	span.highlight {
-	  background-color: #ffffd0;
-	}
-
-
-  #summary:hover + #detail, #detail:hover {
-  display: block;
-  }
-  #detail {
-  display: none;
-  }
-
-  details summary > * {
-	display: inline;
-  }
-  summary a * {
-	pointer-events: none;
-	} 
-	details summary::-webkit-details-marker {
-  display:none;
-}
-  </style>
-  <link rel="icon" href="misc/t_favicon.png">
-
-  <title>Tanmay Shankar</title>
-  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic" rel="stylesheet" type="text/css">
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+	<title>Tanmay Shankar</title>
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic" rel="stylesheet" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
 </head>
 <body>
 
@@ -247,7 +247,11 @@
 
 	  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
 
-			<tr>
+		<!-- ###################################################################### -->
+		<!-- TRS -->
+		<!-- ###################################################################### -->
+		
+		<tr>
 			<td width="25%" align="center">
 				<img src='https://suddhu.github.io/midastouch-tactile/img/midastouch.gif' width="200">
 			</td>
@@ -271,7 +275,7 @@
 					<div style="height:5px;font-size:1px;">&nbsp;</div>
 					<a href="https://proceedings.mlr.press/v162/shankar22a/shankar22a.pdf"  target="_blank">Paper</a> /
 					<a href="https://sites.google.com/view/translatingrobotskills/home" target="_blank">Website</a> /
-					<a href="https://github.com/tanmayshankar/CausalSkillLearning" target="_blank">Code</a> /
+					<a href="https://github.com/tanmayshankar/CausalSkillLearning" target="_blank">Code</a>
 					<!-- <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">Presentation</a> -->
 					<div style="height:15px;font-size:1px;">&nbsp;</div>
 				</div>
@@ -281,6 +285,11 @@
 				</div>
 			</td>
 		</tr> 
+		
+		<!-- ###################################################################### -->
+		<!-- LRS -->
+		<!-- ###################################################################### -->
+
 		<tr>
 			<td width="25%" align="center">
 				<img src='https://suddhu.github.io/midastouch-tactile/img/midastouch.gif' width="200">
@@ -301,7 +310,7 @@
 					<div style="height:5px;font-size:1px;">&nbsp;</div>
 					<a href="http://proceedings.mlr.press/v119/shankar20b/shankar20b.pdf"  target="_blank">Paper</a> /
 					<a href="https://sites.google.com/view/learning-causal-skills" target="_blank">Website</a> /
-					<a href="https://github.com/tanmayshankar/CausalSkillLearning" target="_blank">Code</a> /
+					<a href="https://github.com/tanmayshankar/CausalSkillLearning" target="_blank">Code</a>
 					<!-- <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">Presentation</a> -->
 					<div style="height:15px;font-size:1px;">&nbsp;</div>
 				</div>
@@ -311,6 +320,11 @@
 				</div>
 			</td>
 		</tr> 
+		
+		<!-- ###################################################################### -->
+		<!-- DMP -->
+		<!-- ###################################################################### -->
+
 		<tr>
 			<td width="25%" align="center">
 				<img src='https://suddhu.github.io/midastouch-tactile/img/midastouch.gif' width="200">
@@ -322,8 +336,8 @@
 					</papertitle>                   
 					<div style="height:5px;font-size:1px;">&nbsp;</div>
 					<u>T. Shankar</u>,
-					<a href="http://shubhtuls.github.io/" target="_blank">S. Tulsiani</a>
-					<a href="https://www.lerrelpinto.com/" target="_blank">L. Pinto</a>
+					<a href="http://shubhtuls.github.io/" target="_blank">S. Tulsiani</a>,
+					<a href="https://www.lerrelpinto.com/" target="_blank">L. Pinto</a>,
 					<a href="https://www.cs.cmu.edu/~./abhinavg/" target="_blank">A. Gupta</a>
 					<div style="height:5px;font-size:1px;">&nbsp;</div>
 					<font color=#696969>International Conference on Learning Representations, April 2020</font>
@@ -333,7 +347,7 @@
 					<div style="height:5px;font-size:1px;">&nbsp;</div>
 					<a href="https://openreview.net/forum?id=rkgHY0NYwr"  target="_blank">Paper</a> /
 					<a href="https://sites.google.com/view/discovering-motor-programs/home" target="_blank">Website</a> /
-					<a href="https://github.com/tanmayshankar/DiscoverMotorPrograms" target="_blank">Code</a> /
+					<a href="https://github.com/tanmayshankar/DiscoverMotorPrograms" target="_blank">Code</a>
 					<!-- <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">Presentation</a> -->
 					<div style="height:15px;font-size:1px;">&nbsp;</div>
 				</div>
@@ -343,6 +357,49 @@
 				</div>
 			</td>
 		</tr> 
+		
+		<!-- ###################################################################### -->
+		<!-- LNP -->
+		<!-- ###################################################################### -->
+
+		<tr>
+			<td width="25%" align="center">
+				<img src='https://suddhu.github.io/midastouch-tactile/img/midastouch.gif' width="200">
+			</td>
+			<td valign="center" width="70%">
+				<div id="summary">
+					<papertitle>				
+					Learning Neural Parsers with Deterministic Differentiable Imitation Learning
+					</papertitle>                   
+					<div style="height:5px;font-size:1px;">&nbsp;</div>
+					<u>T. Shankar</u>,
+					<a href="https://nrhinehart.github.io/" target="_blank">N. Rhinehart</a>,
+					<a href="https://www.linkedin.com/in/katharina-muelling-a6260780/" target="_blank">K. Muelling</a>,
+					<a href="https://kriskitani.github.io/" target="_blank">K. Kitani</a>
+					<div style="height:5px;font-size:1px;">&nbsp;</div>
+					<font color=#696969>Conference on Robot Learning, CoRL, October 2018</font>
+					<!-- <font color=#696969><em>International Conference on Machine Learning</em>, July 2022</font> -->
+					<!-- <div style="height:5px;font-size:1px;">&nbsp;</div>
+					[<font color=#009933>Oral: 6% acceptance rate</font>] -->
+					<div style="height:5px;font-size:1px;">&nbsp;</div>
+					<a href="http://proceedings.mlr.press/v87/shankar18a/shankar18a.pdf"  target="_blank">Paper</a> /
+					<!-- <a href="https://sites.google.com/view/discovering-motor-programs/home" target="_blank">Website</a> / -->
+					<!-- <a href="https://github.com/tanmayshankar/DiscoverMotorPrograms" target="_blank">Code</a> -->
+					<!-- <a href="https://youtu.be/L-h8t9-iSFE" target="_blank">Presentation</a> -->
+					<div style="height:15px;font-size:1px;">&nbsp;</div>
+				</div>
+				<div id="detail">
+				<i>
+					Learning image parsers by imitating ID3 style decision tree oracles, using differentiable variants of imitation learning.
+				</div>
+			</td>
+		</tr> 
+
+		<!-- ###################################################################### -->
+		<!-- RLN -->
+		<!-- ###################################################################### -->
+		
+
 		</table>
 
 	<br>
@@ -384,7 +441,7 @@
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
   <tr><td>
 		<p align="right"><font size="2" color=#696969>
-	Last updated: Oct 2022
+	Last updated: Dec 2022
 		<p align="right"><font size="2" color=#696969>
 <a href="http://www.cs.berkeley.edu/~barron/" target="_blank"><font size="2">Imitation is the highest form of flattery
 </a>
